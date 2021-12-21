@@ -14,8 +14,9 @@ jobs:
                 distribution: 'adopt'
                 cache: maven
           - name: Build
-          - run: mvn --update-snapshots --batch-mode verify -Dmaven.javadoc.skip=true -Dmaven.source.skip=true
-          - run: mkdir staging && cp target/*.jar staging
+            run: mvn --update-snapshots --batch-mode verify -Dmaven.javadoc.skip=true -Dmaven.source.skip=true
+          - name: Upload artifact
+            run: mkdir staging && cp target/*.jar staging
           - uses: actions/upload-artifact@v2
             with:
                 name: Package
