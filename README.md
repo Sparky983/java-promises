@@ -74,7 +74,7 @@ Executor<String> fetchData = promise -> {
     promise.resolve("some data");
 };
 
-Promise<String> promise = new CompletablePromise<>(executor);
+Promise<String> promise = new CompletablePromise<>(fetchData);
 ```
 
 We have now created a promise, but it doesn't actually do anything yet because we haven't responded
