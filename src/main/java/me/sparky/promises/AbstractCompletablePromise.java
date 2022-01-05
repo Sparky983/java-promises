@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Sparky
+ * Copyright 2022 Sparky
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,8 @@
 package me.sparky.promises;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Iterator;
 
 /**
  * Provides implementation for a {@link Promise} which can be resolved.
