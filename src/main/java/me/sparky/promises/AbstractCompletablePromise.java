@@ -18,8 +18,6 @@ package me.sparky.promises;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Iterator;
-
 /**
  * Provides implementation for a {@link Promise} which can be resolved.
  *
