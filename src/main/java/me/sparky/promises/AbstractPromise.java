@@ -37,21 +37,21 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      *
      * @since 1.0
      */
-    @Getter protected volatile State state = State.PENDING;
+    @Getter protected State state = State.PENDING;
     
     /**
      * The result of the promise, null of still pending or rejected.
      *
      * @since 1.0
      */
-    @Nullable protected volatile T result;
+    @Nullable protected T result;
     
     /**
      * The rejection reason, null if resolved or pending.
      *
      * @since 1.0
      */
-    @Nullable protected volatile Throwable reason;
+    @Nullable protected Throwable reason;
     
     /**
      * List of all fulfil callbacks.
