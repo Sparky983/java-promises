@@ -21,6 +21,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -59,7 +60,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      * @since 1.0
      */
     @NotNull
-    protected List<Callback<? super T>> fulfilCallbacks = new ArrayList<>(3);
+    protected List<Callback<? super T>> fulfilCallbacks = Collections.synchronizedList(new ArrayList<>(3));
     
     /**
      *
@@ -68,7 +69,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      * @since 1.0
      */
     @NotNull
-    protected List<Callback<Throwable>> rejectCallbacks = new ArrayList<>(3);
+    protected List<Callback<Throwable>> rejectCallbacks = Collections.synchronizedList(new ArrayList<>(3));
     
     /**
      * List of all any callbacks.
@@ -76,7 +77,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      * @since 1.0
      */
     @NotNull
-    protected List<Runnable> anyCallbacks = new ArrayList<>(3);
+    protected List<Runnable> anyCallbacks = Collections.synchronizedList(new ArrayList<>(3));
     
     /**
      * Constructor for subclasses.
