@@ -30,6 +30,7 @@ public interface Callback<T> {
      * This is the method to call back.
      *
      * @param result The result
+     * @since 1.0
      */
     void run(T result);
     

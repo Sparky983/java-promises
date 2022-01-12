@@ -21,6 +21,8 @@ package me.sparky.promises;
  * resolve or reject the promise. The argument is the promise itself.
  *
  * @param <T> The type of the promise
+ * @author Sparky
+ * @since 1.0
  */
 @FunctionalInterface
 public interface Executor<T> {
@@ -30,6 +32,7 @@ public interface Executor<T> {
      *
      * @param promise The promise itself
      * @throws Exception if an error occurs during execution
+     * @since 1.0
      */
     void execute(CompletablePromise<T> promise) throws Exception;
 
