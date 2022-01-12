@@ -114,8 +114,6 @@ promise
     })
     .catchException(reason -> System.out.println(reason.getMessage()))
     .after(() -> System.out.println("Promise has completed"));
-        
-    }
     
 }
 ```
