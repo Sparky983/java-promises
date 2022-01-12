@@ -19,7 +19,8 @@ package me.sparky.promises;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ForkJoinPool;
 
 /**
  * Represents a promise that can be completed (resolved or rejected).
@@ -31,11 +32,11 @@ import java.util.concurrent.Executors;
 public class CompletablePromise<T> extends AbstractCompletablePromise<T> {
     
     /**
-     * The thread pool that is used to execute {@link CompletablePromise#CompletablePromise(me.sparky.promises.Executor)}.
+     * The default thread pool that is used to execute.
      *
      * @since 1.0
      */
-    public static final Executor threadPool = Executors.newFixedThreadPool(3);
+    public static final ExecutorService threadPool = ForkJoinPool.commonPool();
     
     /**
      * Constructs a new <code>CompletablePromise</code>
@@ -53,7 +54,22 @@ public class CompletablePromise<T> extends AbstractCompletablePromise<T> {
      * @since 1.0
      */
     public CompletablePromise(me.sparky.promises.Executor<T> executor) {
+        
+        this(executor, threadPool);
+        
+    }
     
+    /**
+     * Constructs a new <code>CompletablePromise</code>
+     *
+     * @param executor A callback which takes in 1 argument the promise and reject or resolve the promise.
+     *
+     *                 Note: This operation is as asynchronous.
+     * @param threadPool The executor that executes
+     * @since 1.0
+     */
+    public CompletablePromise(me.sparky.promises.Executor<T> executor, Executor threadPool) {
+        
         threadPool.execute(() -> {
             
             try {
