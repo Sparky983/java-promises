@@ -19,6 +19,7 @@ package me.sparky.promises;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -79,6 +80,20 @@ public interface Promise<T> {
     static <T> Promise<List<? super T>> all(@NotNull List<Promise<T>> promises) { return new AllPromise<>(promises); }
     
     /**
+     * Creates a new <code>AllPromise</code>. This promise will be resolved when all the promise inputs are
+     * resolved. It will be rejected if any of them are rejected.
+     *
+     * @param promises The input promises
+     * @param <T> The type of the input promises
+     * @return The newly created promise
+     * @throws IllegalArgumentException if promises is null
+     * @since 1.0
+     */
+    @SafeVarargs
+    @NotNull
+    static <T> Promise<List<? super T>> all(@NotNull Promise<T>... promises) { return new AllPromise<>(Arrays.asList(promises)); }
+    
+    /**
      * Creates a new <code>AnyPromise</code>. This promise will be resolved when any of the promise
      * inputs are resolved and will not be rejected if input promises are rejected.
      *
@@ -90,6 +105,21 @@ public interface Promise<T> {
      */
     @NotNull
     static <T> Promise<T> any(@NotNull List<Promise<T>> promises) { return new AnyPromise<>(promises); }
+    
+    /**
+     * Creates a new <code>AnyPromise</code>. This promise will be resolved when any of the promise
+     * inputs are resolved and will not be rejected if input promises are rejected.
+     *
+     * @param promises The input promises
+     * @param <T> The type of the promise
+     * @return The newly created promise
+     * @throws IllegalArgumentException if promises is null
+     * @since 1.0
+     */
+    @SafeVarargs
+    @NotNull
+    static <T> Promise<T> any(@NotNull Promise<T>... promises) { return new AnyPromise<>(Arrays.asList(promises)); }
+    
     
     /**
      * Represents the state of a promise.
