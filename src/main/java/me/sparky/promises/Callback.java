@@ -32,6 +32,6 @@ public interface Callback<T> {
      * @param result The result
      * @since 1.0
      */
-    void run(T result);
+    void run(T result) throws Exception;
     
 }

@@ -60,7 +60,11 @@ public class RejectedPromise<T> implements Promise<T>{
     @NotNull
     public Promise<T> catchException(@NotNull Callback<Throwable> reject) {
         
-        reject.run(reason);
+        try {
+            reject.run(reason);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return this;
         
     }

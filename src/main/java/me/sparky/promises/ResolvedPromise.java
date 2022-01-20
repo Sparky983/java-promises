@@ -126,7 +126,11 @@ public class ResolvedPromise<T> implements Promise<T> {
     private void reject(@NotNull Throwable reason) {
         
         for (Callback<Throwable> callback : rejectCallbacks)
-            callback.run(reason);
+            try {
+                callback.run(reason);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         
     }
     
