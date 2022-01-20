@@ -136,7 +136,12 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     @NotNull
     public Promise<T> catchException(@NotNull Callback<Throwable> reject) {
         
-        if (state == State.REJECTED) reject.run(reason);
+        if (state == State.REJECTED)
+            try {
+                reject.run(reason);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         else rejectCallbacks.add(reject);
         
         return this;

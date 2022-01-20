@@ -52,7 +52,7 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
         state = State.RESOLVED;
         
         for (Callback<? super T> callback : fulfilCallbacks)
-            callback.run(result);
+            runCallback(callback);
         
         either();
         
