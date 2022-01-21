@@ -94,12 +94,12 @@ public class CompletablePromise<T> extends AbstractCompletablePromise<T> {
     }
     
     @Override
-    public synchronized void resolve(T result) { super.resolve(result); }
+    public void resolve(T result) { super.resolve(result); }
     
     @Override
-    public synchronized void reject(@NotNull Throwable reason) { super.reject(reason); }
+    public void reject(@NotNull Throwable reason) { super.reject(reason); }
     
     @Override
-    public synchronized void reject(@NotNull String reason) { super.reject(reason); }
+    public void reject(@NotNull String reason) { super.reject(reason); }
     
 }

@@ -44,7 +44,7 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
      * @throws IllegalStateException if state is not {@link State#PENDING}
      * @since 1.0
      */
-    protected synchronized void resolve(T result) {
+    protected void resolve(T result) {
         
         checkNotPending();
         
@@ -68,7 +68,7 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
      * @throws IllegalArgumentException if reason is null
      * @since 1.0
      */
-    protected synchronized void reject(@NotNull Throwable reason) {
+    protected void reject(@NotNull Throwable reason) {
         
         checkNotPending();
         
@@ -86,7 +86,7 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
      * @throws IllegalArgumentException if reason is null
      * @since 1.0
      */
-    protected synchronized void reject(@NotNull String reason) {
+    protected void reject(@NotNull String reason) {
         
         reject(new PromiseRejectionException(reason));
         
@@ -113,7 +113,7 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
      * @throws IllegalArgumentException if reason is null
      * @since 1.0
      */
-    protected synchronized void rejectNoCheck(@NotNull Throwable reason) {
+    protected void rejectNoCheck(@NotNull Throwable reason) {
         
         this.reason = reason;
         
