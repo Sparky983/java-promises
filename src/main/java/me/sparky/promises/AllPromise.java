@@ -60,8 +60,6 @@ public class AllPromise<T> extends AbstractCompletablePromise<List<? super T>> {
                     })
                     .catchException(this::reject);
         }
-        
-        
             
     }
     
