@@ -24,7 +24,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Represents a promise that completes when all of its input promises are completed.
+ * Represents a promise that completes when all of its inputs promises are completed and rejected if
+ * any of its inputs are rejected.
  *
  * @param <T> The type of the promises
  * @author Sparky
