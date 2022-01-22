@@ -70,7 +70,7 @@ public class AllPromise<T> extends AbstractCompletablePromise<List<? super T>> {
         try {
             fulfilCallback.run(result);
         } catch (Exception e) {
-            reject(e);
+            rejectNoCheck(e);
         }
         
     }
