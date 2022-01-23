@@ -24,7 +24,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Represents a promise that completes when all of its inputs promises are completed and rejected if
+ * A promise that is resolved with all the input promises are resolved. The promise is resolves to a list  of each resolved value of each promise in the order
+ * they were inputted when all of its inputs promises are resolved and rejected if
  * any of its inputs are rejected.
  *
  * @param <T> The type of the promises
@@ -56,10 +57,12 @@ public class AllPromise<T> extends AbstractCompletablePromise<List<? super T>> {
                     .then(value -> {
                         if (state != State.PENDING) return;
                         results.set(finalI, value);
-                        amountOfResolvedPromises--;
-                        if (amountOfResolvedPromises == 0) resolve(results);
+                        if (--amountOfResolvedPromises == 0) resolve(results);
                     })
-                    .catchException(this::reject);
+                    .catchException((reason) -> {
+                        if (state == State.PENDING)
+                            reject(reason);
+                    });
         }
             
     }

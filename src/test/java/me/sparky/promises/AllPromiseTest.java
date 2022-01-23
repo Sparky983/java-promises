@@ -16,16 +16,16 @@
 
 package me.sparky.promises;
 
+import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AllPromiseTest {
     
@@ -37,7 +37,7 @@ public class AllPromiseTest {
         
         completablePromise = new CompletablePromise<>();
         allPromise = Promise.all(Arrays.asList(Promise.resolve("1"), completablePromise, Promise.resolve("3")));
-    
+        
     }
     
     @Test
@@ -70,11 +70,30 @@ public class AllPromiseTest {
         AtomicReference<String> reason = new AtomicReference<>();
         
         allPromise
-                .then(() -> fail("Promise was rejected"))
+                .then(() -> fail("Not possible, input promise was rejected"))
                 .catchException((throwable) -> reason.set(throwable.getMessage()));
         
         assertEquals(Promise.State.REJECTED, allPromise.getState());
         assertEquals(rejectionReason, reason.get());
+        
+    }
+    
+    @Test
+    void runsCatchExceptionWithoutRejection_WhenErrorsInThen() {
+        
+        val exceptionThrown = new AtomicBoolean(false);
+        
+        allPromise
+                .then(() -> { throw new RuntimeException("Reject"); })
+                .catchException((throwable) -> {
+                    assertEquals("Reject", throwable.getMessage());
+                    exceptionThrown.set(true);
+                });
+        
+        completablePromise.resolve(null);
+        
+        assertEquals(Promise.State.RESOLVED, allPromise.getState());
+        assertTrue(exceptionThrown.get());
         
     }
     
