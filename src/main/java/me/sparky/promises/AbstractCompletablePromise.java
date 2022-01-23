@@ -73,7 +73,9 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
         checkNotPending();
         
         // Check, then run no check rejection is used to not repeat code
+        state = State.REJECTED;
         rejectNoCheck(reason);
+        fulfilCallbacks.clear();
         
     }
     
@@ -102,12 +104,10 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
         for (Runnable runnable : anyCallbacks)
             runnable.run();
         
-        anyCallbacks.clear();
-        
     }
     
     /**
-     * Rejects the promise without checking the current state.
+     * Rejects the promise without checking the current state. Or clearing the fulfil callbacks.
      *
      * @param reason The reason for the rejection
      * @throws IllegalArgumentException if reason is null
@@ -125,8 +125,6 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
             }
         
         either();
-        state = State.REJECTED;
-        fulfilCallbacks.clear();
         
     }
     
