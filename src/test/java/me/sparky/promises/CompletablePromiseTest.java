@@ -30,25 +30,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CompletablePromiseTest {
     
-    @Test
-    void catchExceptionRunsWithCorrectReason_IfExceptionRaisedInThen() {
-    
-        val promise = new CompletablePromise<String>();
-        val reason = "reason";
-        val ran = new AtomicBoolean(false);
-        
-        promise.resolve("");
-        promise
-                .then(() -> { throw new RuntimeException(reason); })
-                .catchException(throwable -> {
-                    assertEquals(reason, throwable.getMessage());
-                    ran.set(true);
-                });
-        
-        assertTrue(ran.get());
-        
-    }
-    
     @SneakyThrows
     @Test
     void executorRunsAsyncAndResolves() {
