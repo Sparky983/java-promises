@@ -57,7 +57,9 @@ public class AllPromise<T> extends AbstractCompletablePromise<List<? super T>> {
                     .then(value -> {
                         if (state != State.PENDING) return;
                         results.set(finalI, value);
-                        if (--amountOfResolvedPromises == 0) resolve(results);
+                        synchronized (this) {
+                            if (--amountOfResolvedPromises == 0) resolve(results);
+                        }
                     })
                     .catchException((reason) -> {
                         if (state == State.PENDING)

@@ -66,7 +66,9 @@ public class WhenAllPromise extends AbstractCompletablePromise<Void> {
     private void incrementAndCheckCompletion() {
         
         if (state == State.REJECTED) return;
-        if (++completed > total) resolve(null);
+        synchronized (this) {
+            if (++completed > total) resolve(null);
+        }
         
     }
     
