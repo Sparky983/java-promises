@@ -20,6 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -120,6 +121,29 @@ public interface Promise<T> {
     @NotNull
     static <T> Promise<T> any(@NotNull Promise<T>... promises) { return new AnyPromise<>(Arrays.asList(promises)); }
     
+    /**
+     * Creates a new <code>WhenAllPromise</code>. This promise will be resolved when all input
+     * promises are resolved and will be rejected if any of its inputs are resolved.
+     *
+     * @param promises The input promises
+     * @return The newly created promise
+     * @throws IllegalArgumentException if promises is null
+     * @since 1.0
+     */
+    @NotNull
+    static Promise<Void> whenAll(@NotNull Collection<Promise<?>> promises) { return new WhenAllPromise(promises); }
+    
+    /**
+     * Creates a new <code>WhenAllPromise</code>. This promise will be resolved when all input
+     * promises are resolved and will be rejected if any of its inputs are resolved.
+     *
+     * @param promises The input promises
+     * @return The newly created promise
+     * @throws IllegalArgumentException if promises is null
+     * @since 1.0
+     */
+    @NotNull
+    static Promise<Void> whenAll(@NotNull Promise<?>... promises) { return new WhenAllPromise(Arrays.asList(promises)); }
     
     /**
      * Represents the state of a promise.
