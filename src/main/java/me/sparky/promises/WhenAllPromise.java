@@ -24,7 +24,7 @@ import java.util.Collection;
  * A void promise that resolves when all input promises are resolved and rejected if any input
  * promises are rejected.
  *
- * @since 1.0
+ * @since 1.1
  * @author Sparky
  */
 public class WhenAllPromise extends AbstractCompletablePromise<Void> {
@@ -37,7 +37,7 @@ public class WhenAllPromise extends AbstractCompletablePromise<Void> {
      *
      * @param promises The input promises
      * @throws IllegalArgumentException if promises is null
-     * @since 1.0
+     * @since 1.1
      */
     public WhenAllPromise(@NotNull Collection<@NotNull Promise<?>> promises) {
         

@@ -128,7 +128,7 @@ public interface Promise<T> {
      * @param promises The input promises
      * @return The newly created promise
      * @throws IllegalArgumentException if promises is null
-     * @since 1.0
+     * @since 1.1
      */
     @NotNull
     static Promise<Void> whenAll(@NotNull Collection<Promise<?>> promises) { return new WhenAllPromise(promises); }
@@ -140,7 +140,7 @@ public interface Promise<T> {
      * @param promises The input promises
      * @return The newly created promise
      * @throws IllegalArgumentException if promises is null
-     * @since 1.0
+     * @since 1.1
      */
     @NotNull
     static Promise<Void> whenAll(@NotNull Promise<?>... promises) { return new WhenAllPromise(Arrays.asList(promises)); }
