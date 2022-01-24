@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class RunnableCallbackTest {
     
     @Test
-    void testSameAsRunnable() {
+    void run_IsSameAsRunnable() {
     
         val strList = new ArrayList<>();
         val runnable = (Runnable) () -> strList.add("1");

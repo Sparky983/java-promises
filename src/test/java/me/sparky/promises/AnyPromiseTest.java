@@ -16,6 +16,7 @@
 
 package me.sparky.promises;
 
+import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,10 +40,10 @@ public class AnyPromiseTest {
     }
     
     @Test
-    void runThen_IfOneIsCompleted() {
+    void then_Runs_WhenAnyPromiseResolves() {
     
-        AtomicInteger thenCount = new AtomicInteger(0);
-        Promise<String> anyPromise = Promise.any(Arrays.asList(completablePromise, Promise.resolve("resolved promise")));
+        val thenCount = new AtomicInteger(0);
+        val anyPromise = Promise.any(Arrays.asList(completablePromise, Promise.resolve("resolved promise")));
         anyPromise
                 .then(thenCount::incrementAndGet);
         
@@ -51,23 +52,9 @@ public class AnyPromiseTest {
     }
     
     @Test
-    void dontRun_IfNotCompleted() {
-    
-        AtomicInteger thenCount = new AtomicInteger(0);
-        Promise<String> anyPromise = Promise.any(Arrays.asList(completablePromise, Promise.reject(new RuntimeException("rejected"))));
-        anyPromise
-                .then(thenCount::incrementAndGet);
-    
-        assertEquals(0, thenCount.get());
-        completablePromise.resolve("Resolved");
-        assertEquals(1, thenCount.get());
+    void catchException_DoesNotRun_WhenInputIsRejected() {
         
-    }
-    
-    @Test
-    void dontRunCatch_Ever() {
-        
-        Promise<String> anyPromise = Promise.any(Collections.singletonList(Promise.reject("Rejected")));
+        val anyPromise = Promise.any(Collections.singletonList(Promise.reject("Rejected")));
         
         anyPromise
                 .catchException((reason) -> fail("AnyPromise cannot be rejected"));

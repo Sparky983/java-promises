@@ -27,9 +27,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class WhenAllPromiseTest {
     
-    private CompletablePromise<Void> promise1;
-    private CompletablePromise<Void> promise2;
-    private Promise<Void> whenAllCompletedPromise;
+    CompletablePromise<Void> promise1;
+    CompletablePromise<Void> promise2;
+    Promise<Void> whenAllCompletedPromise;
     
     @BeforeEach
     void setup() {
@@ -43,7 +43,7 @@ public class WhenAllPromiseTest {
     @Test
     void onlyThen_Runs_WhenAllPromisesAreResolved() {
     
-        AtomicBoolean resolved = new AtomicBoolean(false);
+        val resolved = new AtomicBoolean(false);
         whenAllCompletedPromise
                 .then(() -> resolved.set(true))
                 .catchException(Assertions::fail);

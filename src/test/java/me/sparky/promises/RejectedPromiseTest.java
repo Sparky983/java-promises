@@ -28,23 +28,27 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class RejectedPromiseTest {
     
-    final Throwable REASON = new RuntimeException("Rejected");
     Promise<String> promise;
     
     @BeforeEach
     void setup() {
         
-        promise = Promise.reject(REASON);
+        promise = Promise.reject("reason");
         
     }
     
     @Test
-    void shouldNotRunThen_BecauseRejected() {
-        
-        val ran = new AtomicBoolean(false);
+    void then_DoesNotRun() {
         
         promise
-                .then((value) -> fail("Promise is rejected, shouldn't run"));
+                .then(() -> fail("Promise is rejected, cannot run then"));
+        
+    }
+    
+    @Test
+    void catchException_Runs() {
+        
+        val ran = new AtomicBoolean(false);
         
         promise
                 .catchException((reason) -> ran.set(true));

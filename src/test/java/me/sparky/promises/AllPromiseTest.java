@@ -16,6 +16,7 @@
 
 package me.sparky.promises;
 
+import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,15 +40,12 @@ public class AllPromiseTest {
     }
     
     @Test
-    void whenCompletablePromiseCompletes_ValuesAreInOrderOfPromisesInList_AndStateChanges() {
+    void resolvedValuesInOrderOfInputs_WhenResolved() {
         
         completablePromise.resolve("2");
         // All promises should be resolved now
         
-        assertEquals(Promise.State.RESOLVED, allPromise.getState());
-        // All promise should resolve as last promise resolves
-        
-        AtomicReference<? super List<? super String>> values = new AtomicReference<>();
+        val values = new AtomicReference<>();
         
         allPromise
                 .then(values::set)
@@ -59,13 +57,22 @@ public class AllPromiseTest {
     }
     
     @Test
-    void reject_IfOneOfThePromisesAreRejected() {
+    void resolveOnInput_ResolvesAllPromise() {
         
-        String rejectionReason = "reason";
+        completablePromise.resolve("resolve");
+        
+        assertEquals(Promise.State.RESOLVED, allPromise.getState());
+        
+    }
+    
+    @Test
+    void rejectPromise_WhenOneOfThePromisesAreRejected() {
+        
+        val rejectionReason = "reason";
         
         completablePromise.reject(rejectionReason);
         
-        AtomicReference<String> reason = new AtomicReference<>();
+        val reason = new AtomicReference<>();
         
         allPromise
                 .then(() -> fail("Not possible, input promise was rejected"))

@@ -32,7 +32,7 @@ public class CompletablePromiseTest {
     
     @SneakyThrows
     @Test
-    void executorRunsAsyncAndResolves() {
+    void executor_RunsAsync() {
         
         val ran = new AtomicBoolean(false);
         
@@ -59,7 +59,7 @@ public class CompletablePromiseTest {
     }
     
     @Test
-    void isResolved_AfterAwaited() {
+    void await_WaitsUntilCompletion() {
         
         val promise = new CompletablePromise<String>((completablePromise) -> {
             Thread.sleep(1000);
