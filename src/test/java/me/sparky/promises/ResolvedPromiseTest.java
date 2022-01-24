@@ -27,15 +27,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ResolvedPromiseTest {
-
-    final static String RESOLVED_VALUE = "Resolved value";
     
     Promise<String> promise;
     
     @BeforeEach
     void setup() {
     
-        promise = Promise.resolve(RESOLVED_VALUE);
+        promise = Promise.resolve("Resolved value");
         
     }
     
@@ -45,7 +43,7 @@ public class ResolvedPromiseTest {
         val ran = new AtomicBoolean(false);
         
         promise.then(value -> {
-            assertEquals(RESOLVED_VALUE, value);
+            assertEquals("Resolved value", value);
             ran.set(true);
         });
         
