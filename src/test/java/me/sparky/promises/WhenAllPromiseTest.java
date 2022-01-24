@@ -63,7 +63,6 @@ public class WhenAllPromiseTest {
         assertTrue(resolved.get());
         assertEquals(Promise.State.RESOLVED, whenAllCompletedPromise.getState());
         
-        
     }
     
     @Test
