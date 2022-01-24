@@ -78,23 +78,4 @@ public class AllPromiseTest {
         
     }
     
-    @Test
-    void runsCatchExceptionWithoutRejection_WhenErrorsInThen() {
-        
-        val exceptionThrown = new AtomicBoolean(false);
-        
-        allPromise
-                .then(() -> { throw new RuntimeException("Reject"); })
-                .catchException((throwable) -> {
-                    assertEquals("Reject", throwable.getMessage());
-                    exceptionThrown.set(true);
-                });
-        
-        completablePromise.resolve(null);
-        
-        assertEquals(Promise.State.RESOLVED, allPromise.getState());
-        assertTrue(exceptionThrown.get());
-        
-    }
-    
 }
