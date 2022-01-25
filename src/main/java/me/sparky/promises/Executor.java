@@ -16,6 +16,8 @@
 
 package me.sparky.promises;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * This lambda is passed into {@link CompletablePromise#CompletablePromise(Executor)} to either
  * resolve or reject the promise. The argument is the promise itself.
@@ -32,8 +34,9 @@ public interface Executor<T> {
      *
      * @param promise The promise itself
      * @throws Exception if an error occurs during execution
+     * @throws IllegalArgumentException if promise is null
      * @since 1.0
      */
-    void execute(CompletablePromise<T> promise) throws Exception;
+    void execute(@NotNull CompletablePromise<T> promise) throws Exception;
 
 }
