@@ -44,6 +44,7 @@ class AnyPromiseTest {
     
         val thenCount = new AtomicInteger(0);
         val anyPromise = Promise.any(Arrays.asList(completablePromise, Promise.resolve("resolved promise")));
+        
         anyPromise
                 .then(thenCount::incrementAndGet);
         

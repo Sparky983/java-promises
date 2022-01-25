@@ -40,7 +40,7 @@ class CompletablePromiseTest {
             try {
                 Thread.sleep(TimeUnit.SECONDS.toMillis(1));
                 resolvablePromise.resolve("Resolved");
-            } catch (Exception e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
