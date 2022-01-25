@@ -70,9 +70,7 @@ class AllPromiseTest {
     @Test
     void rejectPromise_WhenOneOfThePromisesAreRejected() {
         
-        val rejectionReason = "reason";
-        
-        completablePromise.reject(rejectionReason);
+        completablePromise.reject("reason");
         
         val reason = new AtomicReference<>();
         
@@ -81,7 +79,7 @@ class AllPromiseTest {
                 .catchException((throwable) -> reason.set(throwable.getMessage()));
         
         assertEquals(Promise.State.REJECTED, allPromise.getState());
-        assertEquals(rejectionReason, reason.get());
+        assertEquals("reason", reason.get());
         
     }
     
