@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class AllPromiseTest {
+class AllPromiseTest {
     
     Promise<List<? super String>> allPromise;
     CompletablePromise<String> completablePromise;
