@@ -128,7 +128,9 @@ me.sparky.promises.Promise class.
 [Promise.resolve(result)](#resolved-promise) \
 [Promise.reject(reason)](#rejected-promise) \
 [Promise.all(promises)](#all-promise) \
-[Promise.any(promises)](#any-promise)
+[Promise.any(promises)](#any-promise) \
+[Promise.whenAll(promises)](#when-all-promise) \
+[Promise.allSettled(promises)](#all-settled-promise)
 
 #### Resolved Promise
 
@@ -155,3 +157,15 @@ Description: Returns a promise that is resolved when all input promises are reso
 Promise.any(@NotNull promises);
 ```
 Description: Returns a promise that ios resolved when any input promises are resolved. 
+
+#### When All Promise
+```java
+Promise.whenAll(@NotNull Promise<?>...);
+```
+Description: Returns a promise that resolves when all input promises are resolved. 
+
+#### All Settled Promise
+```java
+Promise.allSettled(@NotNull Promise<?>...);
+```
+Description: Returns a promise that resolves when all the inputs are settled (completed).
