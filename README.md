@@ -24,7 +24,7 @@ Maven
 <dependency>
     <groupId>me.sparky</groupId>
     <artifactId>java-promises</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
 </dependency>
 ```
 
@@ -35,7 +35,7 @@ repositories {
 }
 
 dependencies {
-    implementation("me.sparky:promises:1.0")
+    implementation("me.sparky:promises:1.2")
 }
 ```
 
