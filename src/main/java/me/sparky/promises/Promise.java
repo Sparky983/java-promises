@@ -145,6 +145,12 @@ public interface Promise<T> {
     @NotNull
     static Promise<Void> whenAll(@NotNull Promise<?>... promises) { return new WhenAllPromise(Arrays.asList(promises)); }
     
+    @NotNull
+    static Promise<List<State>> allSettled(@NotNull Collection<Promise<?>> promises) { return new AllSettledPromise(promises); }
+    
+    @NotNull
+    static Promise<List<State>> allSettled(@NotNull Promise<?>... promises) { return new AllSettledPromise(Arrays.asList(promises)); }
+    
     /**
      * Represents the state of a promise.
      *
