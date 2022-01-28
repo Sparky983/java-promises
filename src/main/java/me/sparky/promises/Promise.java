@@ -146,9 +146,23 @@ public interface Promise<T> {
     @NotNull
     static Promise<Void> whenAll(@NotNull Promise<?>... promises) { return new WhenAllPromise(Arrays.asList(promises)); }
     
+    /**
+     * Creates a new <code>AllSettledPromise</code>. This promise is resolved when all the inputs
+     * settle (complete).
+     *
+     * @param promises The input promises
+     * @return The newly created promise
+     */
     @NotNull
     static Promise<List<State>> allSettled(@NotNull Collection<Promise<?>> promises) { return new AllSettledPromise(promises); }
     
+    /**
+     * Creates a new <code>AllSettledPromise</code>. This promise is resolved when all the inputs
+     * settle (complete).
+     *
+     * @param promises The input promises
+     * @return The newly created promise
+     */
     @NotNull
     static Promise<List<State>> allSettled(@NotNull Promise<?>... promises) { return new AllSettledPromise(Arrays.asList(promises)); }
     
@@ -166,14 +180,14 @@ public interface Promise<T> {
          * @since 1.0
          */
         PENDING,
-    
+        
         /**
          * Represents the state of a promise that has been resolved.
          *
          * @since 1.0
          */
         RESOLVED,
-
+        
         /**
          * Represents the state of a promise that was rejected.
          *
@@ -245,9 +259,9 @@ public interface Promise<T> {
      */
     @NotNull
     default <R> Promise<R> transform(@NotNull Function<T, R> transform) {
-
+        
         return new TransformPromise<>(this, transform);
-
+        
     }
     
     /**
