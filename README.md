@@ -27,7 +27,7 @@ Maven
 <dependency>
     <groupId>me.sparky</groupId>
     <artifactId>java-promises</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
 </dependency>
 ```
 
@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    implementation("me.sparky:promises:1.2")
+    implementation("me.sparky:promises:1.3")
 }
 ```
 
@@ -102,6 +102,25 @@ promise
 These callbacks will be called once the promise is completed. `.then()` will be called asynchronously
 if the promise resolves and `.catchException()` if the promise is rejected. They will be called 
 immediately if the promise has already been completed. `.then()` may also optionally be a `Runnable`.
+
+### Advanced
+
+This section is going to cover more advanced topics such as promise transformation. 
+
+Transforming a promise is where you transform the value of a promise into a new one. You can 
+transform promise `Promise#transform(Function<T, R>)` method. Here is an example with fetching
+json data. 
+
+```java
+public static void main(String... args) {
+    get(args[0])
+        .then((data) -> System.out.println("Recieved json data \n" + json));
+}
+
+public Promise<JSON> get(@NotNull String url) {
+    return get(url).transform(JSON::parse);
+}
+```
 
 ## Built-in Promises
 

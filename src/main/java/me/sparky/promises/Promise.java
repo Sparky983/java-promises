@@ -22,6 +22,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * Represents the completion of a value that has not yet been retrieved.
@@ -227,6 +228,27 @@ public interface Promise<T> {
      */
     @NotNull
     Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<Throwable> reject);
+    
+    /**
+     * Adds a transform function to be applied on fulfil that returns a new value from the input
+     * value.
+     *
+     * Returns a new promise that resolves to the return of the transform function when the current
+     * promise is resolved, and is rejected when the current promise is rejected or if the transform
+     * function fails.
+     *
+     * @param transform The transform function
+     * @param <R> The type of the transformed value
+     * @return The transform promise
+     * @throws IllegalArgumentException if transform is null
+     * @since 1.3
+     */
+    @NotNull
+    default <R> Promise<R> transform(@NotNull Function<T, R> transform) {
+
+        return new TransformPromise<>(this, transform);
+
+    }
     
     /**
      * Adds a callback to be called when the promise is rejected.
