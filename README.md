@@ -103,6 +103,25 @@ These callbacks will be called once the promise is completed. `.then()` will be 
 if the promise resolves and `.catchException()` if the promise is rejected. They will be called 
 immediately if the promise has already been completed. `.then()` may also optionally be a `Runnable`.
 
+### Advanced
+
+This section is going to cover more advanced topics such as promise transformation. 
+
+Transforming a promise is where you transform the value of a promise into a new one. You can 
+transform promise `Promise#transform(Function<T, R>)` method. Here is an example with fetching
+json data. 
+
+```java
+public static void main(String... args) {
+    get(args[0])
+        .then((data) -> System.out.println("Recieved json data \n" + json));
+}
+
+public Promise<JSON> get(@NotNull String url) {
+    return get(url).transform(JSON::parse);
+}
+```
+
 ## Built-in Promises
 
 There are a few built in promise classes. You can access them via a static method in the
