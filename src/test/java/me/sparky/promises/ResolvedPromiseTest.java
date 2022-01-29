@@ -42,7 +42,7 @@ class ResolvedPromiseTest {
     
         val ran = new AtomicBoolean(false);
         
-        promise.then(value -> {
+        promise.then((value) -> {
             assertEquals("Resolved value", value);
             ran.set(true);
         });

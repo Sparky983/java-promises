@@ -54,7 +54,7 @@ public class AllPromise<T> extends AbstractCompletablePromise<List<? super T>> {
         for (int i = 0; i < promises.size(); i++) {
             int finalI = i;
             promises.get(i)
-                    .then(value -> {
+                    .then((value) -> {
                         if (state != State.PENDING) return;
                         results.set(finalI, value);
                         synchronized (this) {

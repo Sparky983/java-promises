@@ -40,7 +40,7 @@ public class AnyPromise<T> extends AbstractCompletablePromise<T> {
     public AnyPromise(@NotNull List<Promise<T>> promises) {
     
         for (Promise<T> promise : promises)
-            promise.then(value -> {
+            promise.then((value) -> {
                 if (state != State.RESOLVED) resolve(value);
             });
     

@@ -36,7 +36,7 @@ class CompletablePromiseTest {
         
         val ran = new AtomicBoolean(false);
         
-        val promise = new CompletablePromise<String>(resolvablePromise -> {
+        val promise = new CompletablePromise<String>((resolvablePromise) -> {
             try {
                 Thread.sleep(TimeUnit.SECONDS.toMillis(1));
                 resolvablePromise.resolve("Resolved");
