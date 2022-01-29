@@ -16,7 +16,6 @@
 
 package me.sparky.promises;
 
-
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
