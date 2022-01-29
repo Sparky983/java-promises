@@ -16,6 +16,7 @@
 
 package me.sparky.promises;
 
+import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -46,7 +47,7 @@ public class TransformPromiseTest {
     @Test
     void rejects_WhenTransformFails() {
         
-        Promise<Integer> transformPromise = new TransformPromise<>(Promise.resolve(4), (value) -> {
+       val transformPromise = new TransformPromise<>(Promise.resolve(4), (value) -> {
             throw new RuntimeException("fail");
         });
         
@@ -61,7 +62,7 @@ public class TransformPromiseTest {
     @Test
     void rejects_WhenFromRejects() {
         
-        Promise<Integer> transformPromise = new TransformPromise<>(
+        val transformPromise = new TransformPromise<>(
                 Promise.<Integer>reject("rejected"),
                 (value) -> value
         );
