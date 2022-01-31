@@ -48,7 +48,8 @@ public class CompletablePromise<T> extends AbstractCompletablePromise<T> {
     /**
      * Constructs a new <code>CompletablePromise</code>
      *
-     * @param executor A callback which takes in 1 argument the promise and reject or resolve the promise.
+     * @param executor A callback which takes in 1 argument the promise and reject or resolve the
+     *                 promise.
      *
      *                 Note: This operation is as asynchronous.
      * @since 1.0
@@ -62,7 +63,8 @@ public class CompletablePromise<T> extends AbstractCompletablePromise<T> {
     /**
      * Constructs a new <code>CompletablePromise</code>
      *
-     * @param executor A callback which takes in 1 argument the promise and reject or resolve the promise.
+     * @param executor A callback which takes in 1 argument the promise and reject or resolve the
+     *                 promise.
      *
      *                 Note: This operation is as asynchronous.
      * @param threadPool The executor that executes

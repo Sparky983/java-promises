@@ -37,7 +37,7 @@ class AllPromiseTest {
     void setup() {
         
         completablePromise = new CompletablePromise<>();
-        allPromise = Promise.all(Arrays.asList(Promise.resolve("1"), completablePromise, Promise.resolve("3")));
+        allPromise = Promise.all(Promise.resolve("1"), completablePromise, Promise.resolve("3"));
         
     }
     
@@ -51,9 +51,12 @@ class AllPromiseTest {
         
         allPromise
                 .then(values::set)
-                .catchException((reason) -> fail("Promise was incorrectly rejected for reason " + reason));
+                .catchException((reason) ->
+                    fail("Promise was incorrectly rejected for reason " + reason)
+                );
         
-        assertNotEquals(null, values.get(), "All input promises have been resolved, allPromise.then() should've ran");
+        assertNotEquals(null, values.get(),
+                        "All input promises have been resolved, allPromise.then() should've ran");
         assertEquals(Arrays.asList("1", "2", "3"), values.get());
         
     }

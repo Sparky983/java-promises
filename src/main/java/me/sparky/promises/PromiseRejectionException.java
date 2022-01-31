@@ -40,7 +40,8 @@ public class PromiseRejectionException extends RuntimeException {
     public PromiseRejectionException(String message) { super(message); }
     
     /**
-     * Constructs a new <code>PromiseRejectionException</code> with specified detail message and cause.
+     * Constructs a new <code>PromiseRejectionException</code> with specified detail message and
+     * cause.
      *
      * @param message The detail message
      * @param cause The cause of this exception
@@ -67,7 +68,10 @@ public class PromiseRejectionException extends RuntimeException {
      * @param writableStackTrace whether the stack trace should be writable or not
      * @since 1.0
      */
-    public PromiseRejectionException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public PromiseRejectionException(String message,
+                                     Throwable cause,
+                                     boolean enableSuppression,
+                                     boolean writableStackTrace) {
         
         super(message, cause, enableSuppression, writableStackTrace);
     

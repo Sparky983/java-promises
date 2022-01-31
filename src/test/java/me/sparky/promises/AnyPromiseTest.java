@@ -20,7 +20,6 @@ import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -43,7 +42,7 @@ class AnyPromiseTest {
     void then_Runs_WhenAnyPromiseResolves() {
     
         val thenCount = new AtomicInteger(0);
-        val anyPromise = Promise.any(Arrays.asList(completablePromise, Promise.resolve("resolved promise")));
+        val anyPromise = Promise.any(completablePromise, Promise.resolve("resolved promise"));
         
         anyPromise
                 .then(thenCount::incrementAndGet);

@@ -84,7 +84,12 @@ public class RejectedPromise<T> implements Promise<T>{
     
     @Override
     @NotNull
-    public Promise<T> then(@NotNull Callback<? super T> fulfil, @NotNull Callback<Throwable> reject) { return this; }
+    public Promise<T> then(@NotNull Callback<? super T> fulfil,
+                           @NotNull Callback<Throwable> reject) {
+    
+        return this;
+    
+    }
     
     @Override
     @NotNull

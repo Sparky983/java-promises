@@ -54,7 +54,8 @@ public class ResolvedPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
-    public Promise<T> then(@NotNull Callback<? super T> fulfil, @NotNull Callback<Throwable> reject) {
+    public Promise<T> then(@NotNull Callback<? super T> fulfil,
+                           @NotNull Callback<Throwable> reject) {
         
         return then(fulfil)
                 .catchException(reject);
@@ -95,7 +96,11 @@ public class ResolvedPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
-    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<Throwable> reject) { return then(fulfil); }
+    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<Throwable> reject) {
+        
+        return then(fulfil);
+    
+    }
     
     @Override
     @NotNull

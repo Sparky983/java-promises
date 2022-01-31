@@ -24,7 +24,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * A promise that resolves to a list of each input promise's state when they are all settled (completed).
+ * A promise that resolves to a list of each input promise's state when they are all settled
+ * (completed).
  *
  * @author Sparky
  * @since 1.2

@@ -24,7 +24,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * A promise that is resolved with all the input promises are resolved. The promise is resolves to a list  of each resolved value of each promise in the order
+ * A promise that is resolved with all the input promises are resolved. The promise is resolves to
+ * a list of each resolved value of each promise in the order
  * they were inputted when all of its inputs promises are resolved and rejected if
  * any of its inputs are rejected.
  *
@@ -85,7 +86,8 @@ public class AllPromise<T> extends AbstractCompletablePromise<List<? super T>> {
      * {@link IllegalArgumentException}.
      *
      * @param list The list to check
-     * @throws IllegalArgumentException if list is null or any of the input list's elements are null
+     * @throws IllegalArgumentException if list is null or any of the input list's elements are
+     * null
      * @since 1.0
      */
     private void checkCollectionForNull(@NotNull Collection<?> list) {
