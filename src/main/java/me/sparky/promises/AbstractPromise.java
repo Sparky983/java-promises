@@ -94,7 +94,15 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      * @throws IllegalArgumentException if fulfilCallback is null
      * @since 1.0
      */
-    protected abstract void runCallback(@NotNull Callback<? super T> fulfilCallback);
+    protected void runCallback(@NotNull Callback<? super T> fulfilCallback) {
+        
+        try {
+            fulfilCallback.run(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
     
     @Override
     @NotNull

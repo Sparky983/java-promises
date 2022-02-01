@@ -60,17 +60,6 @@ public class AllSettledPromise extends AbstractCompletablePromise<List<Promise.S
         
     }
     
-    @Override
-    protected void runCallback(@NotNull Callback<? super List<State>> fulfilCallback) {
-        
-        try {
-            fulfilCallback.run(result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    
-    }
-    
     private void settle(int i, State state) {
         
         outcomes.set(i, state);

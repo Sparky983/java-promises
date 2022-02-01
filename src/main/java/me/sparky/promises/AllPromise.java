@@ -70,17 +70,6 @@ public class AllPromise<T> extends AbstractCompletablePromise<List<? super T>> {
             
     }
     
-    @Override
-    protected void runCallback(@NotNull Callback<? super List<? super T>> fulfilCallback) {
-        
-        try {
-            fulfilCallback.run(result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-    }
-    
     /**
      * Checks if any elements inside the input list are null and if so throws
      * {@link IllegalArgumentException}.

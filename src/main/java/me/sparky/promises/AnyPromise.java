@@ -46,15 +46,4 @@ public class AnyPromise<T> extends AbstractCompletablePromise<T> {
     
     }
     
-    @Override
-    protected void runCallback(@NotNull Callback<? super T> fulfilCallback) {
-        
-        try {
-            fulfilCallback.run(result);
-        } catch (Exception e) {
-            reject(e);
-        }
-        
-    }
-    
 }

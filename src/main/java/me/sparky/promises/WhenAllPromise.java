@@ -52,17 +52,6 @@ public class WhenAllPromise extends AbstractCompletablePromise<Void> {
         
     }
     
-    @Override
-    protected void runCallback(@NotNull Callback<? super Void> fulfilCallback) {
-        
-        try {
-            fulfilCallback.run(result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-    }
-    
     private void incrementAndCheckCompletion() {
         
         if (state == State.REJECTED) return;
