@@ -1,5 +1,7 @@
 # Java Promises 
 
+<img src=https://github.com/Sparky983/java-promises/workflows/CI/badge.svg alt="build-status">
+
 Java Promises is a Java promise library aimed to have syntax which is very similar to JavaScript. 
 
 note: Although many methods may have the same name as a JavaScript method, they may do different 
