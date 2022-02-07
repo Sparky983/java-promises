@@ -102,7 +102,11 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
     protected void either() {
         
         for (Runnable runnable : anyCallbacks)
-            runnable.run();
+            try {
+                runnable.run();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         
     }
     
