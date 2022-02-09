@@ -1,10 +1,15 @@
 # Java Promises 
 
-<img src=https://github.com/Sparky983/java-promises/workflows/CI/badge.svg alt="build-status">
+<p align="center">Java promise library aimed to have syntax which is very similar to JavaScript. </p>
 
-Java Promises is a Java promise library aimed to have syntax which is very similar to JavaScript. 
+<p align="center">
+    <img src="https://img.shields.io/github/workflow/status/Sparky983/java-promises/CI?label=Build&style=flat-square&color=ff214e&labelColor=000000" alt="Build Status">
+    <img src="https://img.shields.io/github/license/Sparky983/java-promises?label=License&style=flat-square&color=ff214e&labelColor=000000" alt="License Apache">
+    <img src="https://img.shields.io/github/commit-activity/m/Sparky983/java-promises?label=Commits&style=flat-square&color=ff214e&labelColor=000000">
+    <img src="https://img.shields.io/static/v1?label=PRs&message=Welcome&style=flat-square&color=ff214e&labelColor=000000" alt="Pull Requests Welcome">
+</p>
 
-note: Although many methods may have the same name as a JavaScript method, they may do different 
+Note: although many methods may have the same name as a JavaScript promise method, they may do different 
 things. 
 
 ## Table of Contents
