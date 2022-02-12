@@ -60,7 +60,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      * @since 1.0
      */
     @NotNull
-    protected List<Callback<? super T>> fulfilCallbacks = new ArrayList<>(3);
+    protected List<@NotNull Callback<? super T>> fulfilCallbacks = new ArrayList<>(3);
     
     /**
      *
@@ -69,7 +69,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      * @since 1.0
      */
     @NotNull
-    protected List<Callback<Throwable>> rejectCallbacks = new ArrayList<>(3);
+    protected List<@NotNull Callback<@NotNull Throwable>> rejectCallbacks = new ArrayList<>(3);
     
     /**
      * List of all any callbacks.
@@ -77,7 +77,8 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      * @since 1.0
      */
     @NotNull
-    protected List<Runnable> anyCallbacks = Collections.synchronizedList(new ArrayList<>(3));
+    protected List<@NotNull Runnable> anyCallbacks =
+            Collections.synchronizedList(new ArrayList<>(3));
     
     /**
      * Constructor for subclasses.
@@ -107,7 +108,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     @Override
     @NotNull
     public Promise<T> then(@NotNull Callback<? super T> fulfil,
-                           @NotNull Callback<Throwable> reject) {
+                           @NotNull Callback<@NotNull Throwable> reject) {
         
         return then(fulfil)
                 .catchException(reject);
@@ -135,7 +136,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
-    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<Throwable> reject) {
+    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject) {
         
         return then(new RunnableCallback<>(fulfil), reject);
         
@@ -143,14 +144,20 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
-    public Promise<T> catchException(@NotNull Callback<Throwable> reject) {
+    public Promise<T> catchException(@NotNull Callback<@NotNull Throwable> reject) {
     
-        if (state == State.REJECTED)
+        if (state == State.REJECTED) {
+            
+            if (reason == null)
+                throw new AssertionError("Reason must not be null when state is REJECTED");
+            
             try {
                 reject.run(reason);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            
+        }
         rejectCallbacks.add(reject);
         
         return this;

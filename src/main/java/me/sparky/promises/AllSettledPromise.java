@@ -16,6 +16,8 @@
 
 package me.sparky.promises;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -40,7 +42,7 @@ public class AllSettledPromise extends AbstractCompletablePromise<List<Promise.S
      * @throws IllegalArgumentException if promises is null
      * @since 1.2
      */
-    public AllSettledPromise(Collection<Promise<?>> promises) {
+    public AllSettledPromise(@NotNull Collection<@NotNull Promise<?>> promises) {
         
         this.outcomes = new ArrayList<>(Collections.nCopies(promises.size(), null));
         

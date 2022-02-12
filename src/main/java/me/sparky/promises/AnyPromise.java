@@ -37,7 +37,7 @@ public class AnyPromise<T> extends AbstractCompletablePromise<T> {
      * @throws IllegalArgumentException if promises is null
      * @since 1.0
      */
-    public AnyPromise(@NotNull List<Promise<T>> promises) {
+    public AnyPromise(@NotNull List<@NotNull Promise<T>> promises) {
     
         for (Promise<T> promise : promises)
             promise.then((value) -> {
