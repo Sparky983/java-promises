@@ -58,7 +58,7 @@ public class RejectedPromise<T> implements Promise<T>{
     
     @Override
     @NotNull
-    public Promise<T> catchException(@NotNull Callback<Throwable> reject) {
+    public Promise<T> catchException(@NotNull Callback<@NotNull Throwable> reject) {
         
         try {
             reject.run(reason);
@@ -85,7 +85,7 @@ public class RejectedPromise<T> implements Promise<T>{
     @Override
     @NotNull
     public Promise<T> then(@NotNull Callback<? super T> fulfil,
-                           @NotNull Callback<Throwable> reject) {
+                           @NotNull Callback<@NotNull Throwable> reject) {
     
         return this;
     
@@ -101,7 +101,7 @@ public class RejectedPromise<T> implements Promise<T>{
     
     @Override
     @NotNull
-    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<Throwable> reject) { return this; }
+    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject) { return this; }
     
     @Override
     public void await() { }

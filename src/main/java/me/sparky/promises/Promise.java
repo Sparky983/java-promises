@@ -79,7 +79,7 @@ public interface Promise<T> {
      * @since 1.0
      */
     @NotNull
-    static <T> Promise<List<? super T>> all(@NotNull List<Promise<T>> promises) { return new AllPromise<>(promises); }
+    static <T> Promise<List<? super T>> all(@NotNull List<@NotNull Promise<T>> promises) { return new AllPromise<>(promises); }
     
     /**
      * Creates a new <code>AllPromise</code>. This promise will be resolved when all the promise inputs are
@@ -106,7 +106,7 @@ public interface Promise<T> {
      * @since 1.0
      */
     @NotNull
-    static <T> Promise<T> any(@NotNull List<Promise<T>> promises) { return new AnyPromise<>(promises); }
+    static <T> Promise<T> any(@NotNull List<@NotNull Promise<T>> promises) { return new AnyPromise<>(promises); }
     
     /**
      * Creates a new <code>AnyPromise</code>. This promise will be resolved when any of the promise
@@ -132,7 +132,7 @@ public interface Promise<T> {
      * @since 1.1
      */
     @NotNull
-    static Promise<Void> whenAll(@NotNull Collection<Promise<?>> promises) { return new WhenAllPromise(promises); }
+    static Promise<Void> whenAll(@NotNull Collection<@NotNull Promise<?>> promises) { return new WhenAllPromise(promises); }
     
     /**
      * Creates a new <code>WhenAllPromise</code>. This promise will be resolved when all input
@@ -154,7 +154,7 @@ public interface Promise<T> {
      * @return The newly created promise
      */
     @NotNull
-    static Promise<List<State>> allSettled(@NotNull Collection<Promise<?>> promises) { return new AllSettledPromise(promises); }
+    static Promise<List<State>> allSettled(@NotNull Collection<@NotNull Promise<?>> promises) { return new AllSettledPromise(promises); }
     
     /**
      * Creates a new <code>AllSettledPromise</code>. This promise is resolved when all the inputs
@@ -207,7 +207,8 @@ public interface Promise<T> {
      * @since 1.0
      */
     @NotNull
-    Promise<T> then(@NotNull Callback<? super T> fulfil, @NotNull Callback<Throwable> reject);
+    Promise<T> then(@NotNull Callback<? super T> fulfil,
+                    @NotNull Callback<@NotNull Throwable> reject);
     
     /**
      * Adds a callback to be called on fulfil.
@@ -241,7 +242,7 @@ public interface Promise<T> {
      * @since 1.0
      */
     @NotNull
-    Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<Throwable> reject);
+    Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject);
     
     /**
      * Adds a transform function to be applied on fulfil that returns a new value from the input
@@ -273,7 +274,7 @@ public interface Promise<T> {
      * @since 1.0
      */
     @NotNull
-    Promise<T> catchException(@NotNull Callback<Throwable> reject);
+    Promise<T> catchException(@NotNull Callback<@NotNull Throwable> reject);
     
     /**
      * Adds a callback to be called when promise is either completed (resolved or rejected).

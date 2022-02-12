@@ -45,7 +45,7 @@ public class AllPromise<T> extends AbstractCompletablePromise<List<? super T>> {
      * @throws IllegalArgumentException if promises is null
      * @since 1.0
      */
-    public AllPromise(@NotNull List<Promise<T>> promises) {
+    public AllPromise(@NotNull List<@NotNull Promise<T>> promises) {
         
         checkCollectionForNull(promises);
         
