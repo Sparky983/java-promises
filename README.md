@@ -71,7 +71,7 @@ Note that a `Promise` and `CompletablePromise` are different.
 
 ```java
 Promise<String> promise = new CompletablePromise<>((completablePromise) -> {
-    completablePromise.resolve("Resolved!")
+    completablePromise.resolve("Resolved!");
 });
 ```
 
@@ -81,14 +81,14 @@ can also do this operation synchronously without an executor by explicitly calli
 
 ```java
 CompletablePromise<String> promise = new CompletablePromise<>();
-promise.resolve("Resolved!")
+promise.resolve("Resolved!");
 ```
 
 To reject the promise call `CompletablePromise#reject(Throwable)`. You may also optionally throw an
 Exception inside the executor. 
 
 ```java
-throw new Exception("Rejected!")
+throw new Exception("Rejected!");
 
 completablePromise.reject(new Exception("Rejected!"));
 ```
