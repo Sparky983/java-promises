@@ -5,7 +5,7 @@
 <p align="center">
     <img src="https://img.shields.io/github/workflow/status/Sparky983/java-promises/CI?label=Build&style=flat-square&color=ff214e&labelColor=000000" alt="Build Status">
     <img src="https://img.shields.io/github/license/Sparky983/java-promises?label=License&style=flat-square&color=ff214e&labelColor=000000" alt="License Apache">
-    <img src="https://img.shields.io/github/commit-activity/m/Sparky983/java-promises?label=Commits&style=flat-square&color=ff214e&labelColor=000000">
+    <img src="https://img.shields.io/github/commit-activity/m/Sparky983/java-promises?label=Commits&style=flat-square&color=ff214e&labelColor=000000" alt="Commit activity">
     <img src="https://img.shields.io/static/v1?label=PRs&message=Welcome&style=flat-square&color=ff214e&labelColor=000000" alt="Pull Requests Welcome">
 </p>
 
