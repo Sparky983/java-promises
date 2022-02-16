@@ -152,6 +152,7 @@ public interface Promise<T> {
      *
      * @param promises The input promises
      * @return The newly created promise
+     * @since 1.2
      */
     @NotNull
     static Promise<List<State>> allSettled(@NotNull Collection<@NotNull Promise<?>> promises) { return new AllSettledPromise(promises); }
@@ -162,6 +163,7 @@ public interface Promise<T> {
      *
      * @param promises The input promises
      * @return The newly created promise
+     * @since 1.2
      */
     @NotNull
     static Promise<List<State>> allSettled(@NotNull Promise<?>... promises) { return new AllSettledPromise(Arrays.asList(promises)); }
