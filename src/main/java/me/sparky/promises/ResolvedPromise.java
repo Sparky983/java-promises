@@ -79,18 +79,7 @@ public class ResolvedPromise<T> implements Promise<T> {
     @NotNull
     public Promise<T> then(@NotNull Runnable fulfil) {
         
-//        return then(new RunnableCallback<>(fulfil));
-        
-        // More readable and clean but slower.
-        
-        try {
-            fulfil.run();
-        } catch (Exception e) {
-            reject(e);
-        }
-        // Faster method
-        
-        return this;
+        return then(new RunnableCallback<>(fulfil));
         
     }
     
