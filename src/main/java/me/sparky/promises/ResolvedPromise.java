@@ -39,7 +39,6 @@ public class ResolvedPromise<T> implements Promise<T> {
      * Constructs a <code>ResolvedPromise</code> with specified result.
      *
      * @param result The result of the promise
-     * @throws IllegalArgumentException if result is null
      * @since 1.0
      */
     public ResolvedPromise(@Nullable T result) {

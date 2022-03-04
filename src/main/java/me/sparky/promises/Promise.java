@@ -38,7 +38,6 @@ public interface Promise<T> {
      * @param result The result of the resolved promise
      * @param <T> The type of the resolved promise
      * @return The newly created promise
-     * @throws IllegalArgumentException if result is null
      * @since 1.0
      */
     @NotNull
