@@ -45,6 +45,15 @@ public interface Promise<T> {
     static <T> Promise<T> resolve(@Nullable T result) { return new ResolvedPromise<>(result); }
     
     /**
+     * Creates a new void resolved promise.
+     *
+     * @return The newly created promise
+     * @since 1.4.1
+     */
+    @NotNull
+    static Promise<Void> resolve() { return new ResolvedPromise<>(null); }
+    
+    /**
      * Creates a new rejected promise.
      *
      * @param reason The reason for the rejection
