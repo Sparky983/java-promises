@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a rejected promise. This promise is more efficient than using
- * {@link CompletablePromise} and rejecting it.
+ * {@link SettleablePromise} and rejecting it.
  *
  * @param <T> The type of the promise
  * @author Sparky
@@ -101,7 +101,11 @@ public class RejectedPromise<T> implements Promise<T>{
     
     @Override
     @NotNull
-    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject) { return this; }
+    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject) {
+    
+        return this;
+    
+    }
     
     @Override
     public void await() { }
