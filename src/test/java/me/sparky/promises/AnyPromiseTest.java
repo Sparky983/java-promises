@@ -29,12 +29,12 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 class AnyPromiseTest {
     
-    CompletablePromise<String> completablePromise;
+    SettleablePromise<String> completablePromise;
     
     @BeforeEach
     void setup() {
         
-        completablePromise = new CompletablePromise<>();
+        completablePromise = new SettleablePromise<>();
         
     }
     

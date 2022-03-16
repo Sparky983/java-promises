@@ -16,81 +16,14 @@
 
 package me.sparky.promises;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ForkJoinPool;
+import me.sparky.promises.annotation.ForRemoval;
 
 /**
- * Represents a promise that can be completed (resolved or rejected).
- *
- * @param <T> The type of the resolved value of the promise
- * @author Sparky
- * @since 1.0
+ * @deprecated replaced with properly named {@link SettleablePromise}
+ * @see SettleablePromise
  */
-public class CompletablePromise<T> extends AbstractCompletablePromise<T> {
-    
-    /**
-     * The default thread pool that is used to execute.
-     *
-     * @since 1.0
-     */
-    public static final ExecutorService threadPool = ForkJoinPool.commonPool();
-    
-    /**
-     * Constructs a new <code>CompletablePromise</code>
-     *
-     * @since 1.0
-     */
-    public CompletablePromise() { }
-    
-    /**
-     * Constructs a new <code>CompletablePromise</code>
-     *
-     * @param executor A callback which takes in 1 argument the promise and reject or resolve the
-     *                 promise.
-     *
-     *                 Note: This operation is as asynchronous.
-     * @since 1.0
-     */
-    public CompletablePromise(@NotNull me.sparky.promises.Executor<T> executor) {
-        
-        this(executor, threadPool);
-        
-    }
-    
-    /**
-     * Constructs a new <code>CompletablePromise</code>
-     *
-     * @param executor A callback which takes in 1 argument the promise and reject or resolve the
-     *                 promise.
-     *
-     *                 Note: This operation is as asynchronous.
-     * @param threadPool The executor that executes
-     * @since 1.0
-     */
-    public CompletablePromise(@NotNull me.sparky.promises.Executor<@NotNull T> executor, @NotNull Executor threadPool) {
-        
-        threadPool.execute(() -> {
-            
-            try {
-                executor.execute(this);
-            } catch (Exception e) {
-                reject(e);
-            }
-    
-        });
-        
-    }
-    
-    @Override
-    public void resolve(T result) { super.resolve(result); }
-    
-    @Override
-    public void reject(@NotNull Throwable reason) { super.reject(reason); }
-    
-    @Override
-    public void reject(@NotNull String reason) { super.reject(reason); }
-    
+@ForRemoval(deadline = "1.6.0")
+@Deprecated(since = "1.4.1", forRemoval = true)
+public class CompletablePromise<T> extends SettleablePromise<T> {
+
 }

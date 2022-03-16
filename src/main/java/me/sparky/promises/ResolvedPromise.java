@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  * Represents a resolved, completed promise. This promise is more efficient than using
- * {@link CompletablePromise} and completing it.
+ * {@link SettleablePromise} and completing it.
  *
  * @param <T> The type of the resolved value of the promise
  * @author Sparky
