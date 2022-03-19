@@ -50,4 +50,11 @@ class ResolvedPromiseTest {
     
     }
     
+    @Test
+    void promiseIsRejected() {
+        
+        assertEquals(Promise.State.RESOLVED, promise.getState());
+        
+    }
+    
 }
