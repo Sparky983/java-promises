@@ -27,6 +27,8 @@ import java.util.List;
  * @param <T> The type of the promises
  * @author Sparky
  * @since 1.0
+ * @see Promise#any(List)
+ * @see Promise#any(Promise[])
  */
 public class AnyPromise<T> extends AbstractCompletablePromise<T> {
     

@@ -25,6 +25,7 @@ import org.jetbrains.annotations.NotNull;
  * @param <T> The type of the callback
  * @author Sparky
  * @since 1.0
+ * @see Runnable
  */
 public class RunnableCallback<T> implements Callback<T> {
     

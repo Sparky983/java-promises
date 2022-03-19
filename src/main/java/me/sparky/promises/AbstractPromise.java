@@ -30,6 +30,7 @@ import java.util.List;
  * @param <T> The type of the resolved value of the promise
  * @author Sparky
  * @since 1.0
+ * @see Promise
  */
 public abstract class AbstractPromise<T> implements Promise<T> {
     

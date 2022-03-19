@@ -29,6 +29,8 @@ import java.util.List;
  *
  * @author Sparky
  * @since 1.2
+ * @see Promise#allSettled(Collection)
+ * @see Promise#allSettled(Promise[])
  */
 public class AllSettledPromise extends AbstractCompletablePromise<List<Promise.State>> {
     

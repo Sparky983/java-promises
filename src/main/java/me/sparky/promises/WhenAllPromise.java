@@ -26,6 +26,8 @@ import java.util.Collection;
  *
  * @since 1.1
  * @author Sparky
+ * @see Promise#whenAll(Collection)
+ * @see Promise#whenAll(Promise[])
  */
 public class WhenAllPromise extends AbstractCompletablePromise<Void> {
     

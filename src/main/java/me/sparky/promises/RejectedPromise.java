@@ -25,6 +25,8 @@ import org.jetbrains.annotations.NotNull;
  * @param <T> The type of the promise
  * @author Sparky
  * @since 1.0
+ * @see Promise#reject(Throwable)
+ * @see Promise#reject(String)
  */
 public class RejectedPromise<T> implements Promise<T>{
     

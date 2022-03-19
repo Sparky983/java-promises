@@ -29,6 +29,8 @@ import java.util.List;
  * @param <T> The type of the resolved value of the promise
  * @author Sparky
  * @since 1.0
+ * @see Promise#resolve(Object)
+ * @see Promise#resolve()
  */
 public class ResolvedPromise<T> implements Promise<T> {
     

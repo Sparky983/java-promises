@@ -26,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
  * @param <T> The type of the promise
  * @author Sparky
  * @since 1.0
+ * @see SettleablePromise
  */
 public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
     

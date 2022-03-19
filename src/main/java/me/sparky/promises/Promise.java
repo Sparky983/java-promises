@@ -29,6 +29,14 @@ import java.util.function.Function;
  *
  * @author Sparky
  * @since 1.0
+ * @see AllPromise
+ * @see AllSettledPromise
+ * @see AnyPromise
+ * @see RejectedPromise
+ * @see ResolvedPromise
+ * @see SettleablePromise
+ * @see TransformPromise
+ * @see WhenAllPromise
  */
 public interface Promise<T> {
     

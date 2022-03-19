@@ -53,6 +53,7 @@ public class SettleablePromise<T> extends AbstractCompletablePromise<T> {
      *
      *                 Note: This operation is as asynchronous.
      * @since 1.0
+     * @see SettleablePromise#threadPool
      */
     public SettleablePromise(@NotNull me.sparky.promises.Executor<T> executor) {
         

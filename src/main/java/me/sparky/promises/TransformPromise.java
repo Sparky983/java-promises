@@ -28,6 +28,7 @@ import java.util.function.Function;
  * @param <T> The return of the transform function
  * @author Sparky
  * @since 1.3
+ * @see Promise#transform(Function)
  */
 public class TransformPromise<T> extends AbstractCompletablePromise<T> {
     
