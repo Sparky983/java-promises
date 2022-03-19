@@ -26,17 +26,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AllSettledPromiseTest {
 
-    CompletablePromise<String> promise1;
-    CompletablePromise<String> promise2;
-    CompletablePromise<String> promise3;
+    SettleablePromise<String> promise1;
+    SettleablePromise<String> promise2;
+    SettleablePromise<String> promise3;
     Promise<List<Promise.State>> allSettledPromise;
     
     @BeforeEach
     void setup() {
         
-        promise1 = new CompletablePromise<>();
-        promise2 = new CompletablePromise<>();
-        promise3 = new CompletablePromise<>();
+        promise1 = new SettleablePromise<>();
+        promise2 = new SettleablePromise<>();
+        promise3 = new SettleablePromise<>();
         allSettledPromise = Promise.allSettled(promise1, promise2, promise3);
         
     }

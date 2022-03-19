@@ -31,12 +31,12 @@ import static org.junit.jupiter.api.Assertions.fail;
 class AllPromiseTest {
     
     Promise<List<? super String>> allPromise;
-    CompletablePromise<String> completablePromise;
+    SettleablePromise<String> completablePromise;
     
     @BeforeEach
     void setup() {
         
-        completablePromise = new CompletablePromise<>();
+        completablePromise = new SettleablePromise<>();
         allPromise = Promise.all(Promise.resolve("1"), completablePromise, Promise.resolve("3"));
         
     }

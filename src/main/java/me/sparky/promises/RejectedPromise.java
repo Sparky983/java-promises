@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a rejected promise. This promise is more efficient than using
- * {@link CompletablePromise} and rejecting it.
+ * {@link SettleablePromise} and rejecting it.
  *
  * @param <T> The type of the promise
  * @author Sparky

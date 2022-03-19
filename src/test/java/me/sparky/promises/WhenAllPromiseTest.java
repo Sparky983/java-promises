@@ -29,15 +29,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class WhenAllPromiseTest {
     
-    CompletablePromise<Void> promise1;
-    CompletablePromise<Void> promise2;
+    SettleablePromise<Void> promise1;
+    SettleablePromise<Void> promise2;
     Promise<Void> whenAllCompletedPromise;
     
     @BeforeEach
     void setup() {
         
-        promise1 = new CompletablePromise<>();
-        promise2 = new CompletablePromise<>();
+        promise1 = new SettleablePromise<>();
+        promise2 = new SettleablePromise<>();
         whenAllCompletedPromise = Promise.whenAll(promise1, promise2);
         
     }
