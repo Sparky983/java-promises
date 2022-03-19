@@ -101,7 +101,11 @@ public class RejectedPromise<T> implements Promise<T>{
     
     @Override
     @NotNull
-    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject) { return this; }
+    public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject) {
+        
+        return this;
+    
+    }
     
     @Override
     public void await() { }

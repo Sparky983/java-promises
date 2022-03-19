@@ -74,7 +74,11 @@ public interface Promise<T> {
      * @since 1.0
      */
     @NotNull
-    static <T> Promise<T> reject(@NotNull String reason) { return new RejectedPromise<>(reason); }
+    static <T> Promise<T> reject(@NotNull String reason) {
+        
+        return new RejectedPromise<>(reason);
+    
+    }
     
     /**
      * Creates a new <code>AllPromise</code>. This promise will be resolved when all the promise inputs are
@@ -87,7 +91,11 @@ public interface Promise<T> {
      * @since 1.0
      */
     @NotNull
-    static <T> Promise<List<? super T>> all(@NotNull List<@NotNull Promise<T>> promises) { return new AllPromise<>(promises); }
+    static <T> Promise<List<? super T>> all(@NotNull List<@NotNull Promise<T>> promises) {
+        
+        return new AllPromise<>(promises);
+    
+    }
     
     /**
      * Creates a new <code>AllPromise</code>. This promise will be resolved when all the promise inputs are
@@ -101,7 +109,11 @@ public interface Promise<T> {
      */
     @SafeVarargs
     @NotNull
-    static <T> Promise<List<? super T>> all(@NotNull Promise<T>... promises) { return new AllPromise<>(Arrays.asList(promises)); }
+    static <T> Promise<List<? super T>> all(@NotNull Promise<T>... promises) {
+        
+        return new AllPromise<>(Arrays.asList(promises));
+    
+    }
     
     /**
      * Creates a new <code>AnyPromise</code>. This promise will be resolved when any of the promise
@@ -114,7 +126,11 @@ public interface Promise<T> {
      * @since 1.0
      */
     @NotNull
-    static <T> Promise<T> any(@NotNull List<@NotNull Promise<T>> promises) { return new AnyPromise<>(promises); }
+    static <T> Promise<T> any(@NotNull List<@NotNull Promise<T>> promises) {
+        
+        return new AnyPromise<>(promises);
+    
+    }
     
     /**
      * Creates a new <code>AnyPromise</code>. This promise will be resolved when any of the promise
@@ -128,7 +144,11 @@ public interface Promise<T> {
      */
     @SafeVarargs
     @NotNull
-    static <T> Promise<T> any(@NotNull Promise<T>... promises) { return new AnyPromise<>(Arrays.asList(promises)); }
+    static <T> Promise<T> any(@NotNull Promise<T>... promises) {
+        
+        return new AnyPromise<>(Arrays.asList(promises));
+    
+    }
     
     /**
      * Creates a new <code>WhenAllPromise</code>. This promise will be resolved when all input
@@ -140,7 +160,11 @@ public interface Promise<T> {
      * @since 1.1
      */
     @NotNull
-    static Promise<Void> whenAll(@NotNull Collection<@NotNull Promise<?>> promises) { return new WhenAllPromise(promises); }
+    static Promise<Void> whenAll(@NotNull Collection<@NotNull Promise<?>> promises) {
+        
+        return new WhenAllPromise(promises);
+    
+    }
     
     /**
      * Creates a new <code>WhenAllPromise</code>. This promise will be resolved when all input
@@ -152,7 +176,11 @@ public interface Promise<T> {
      * @since 1.1
      */
     @NotNull
-    static Promise<Void> whenAll(@NotNull Promise<?>... promises) { return new WhenAllPromise(Arrays.asList(promises)); }
+    static Promise<Void> whenAll(@NotNull Promise<?>... promises) {
+        
+        return new WhenAllPromise(Arrays.asList(promises));
+    
+    }
     
     /**
      * Creates a new <code>AllSettledPromise</code>. This promise is resolved when all the inputs
@@ -163,7 +191,11 @@ public interface Promise<T> {
      * @since 1.2
      */
     @NotNull
-    static Promise<List<State>> allSettled(@NotNull Collection<@NotNull Promise<?>> promises) { return new AllSettledPromise(promises); }
+    static Promise<List<State>> allSettled(@NotNull Collection<@NotNull Promise<?>> promises) {
+        
+        return new AllSettledPromise(promises);
+    
+    }
     
     /**
      * Creates a new <code>AllSettledPromise</code>. This promise is resolved when all the inputs
@@ -174,7 +206,11 @@ public interface Promise<T> {
      * @since 1.2
      */
     @NotNull
-    static Promise<List<State>> allSettled(@NotNull Promise<?>... promises) { return new AllSettledPromise(Arrays.asList(promises)); }
+    static Promise<List<State>> allSettled(@NotNull Promise<?>... promises) {
+        
+        return new AllSettledPromise(Arrays.asList(promises));
+    
+    }
     
     /**
      * Represents the state of a promise.

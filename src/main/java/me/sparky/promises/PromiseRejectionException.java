@@ -47,7 +47,11 @@ public class PromiseRejectionException extends RuntimeException {
      * @param cause The cause of this exception
      * @since 1.0
      */
-    public PromiseRejectionException(String message, Throwable cause) { super(message, cause); }
+    public PromiseRejectionException(String message, Throwable cause) {
+        
+        super(message, cause);
+    
+    }
     
     /**
      * Constructs a new <code>PromiseRejectionException</code> with specified cause.
@@ -56,7 +60,6 @@ public class PromiseRejectionException extends RuntimeException {
      * @since 1.0
      */
     public PromiseRejectionException(Throwable cause) { super(cause); }
-    
     
     /**
      * Constructs a new <code>PromiseRejectionException</code> with specified detail message, cause,
@@ -76,6 +79,5 @@ public class PromiseRejectionException extends RuntimeException {
         super(message, cause, enableSuppression, writableStackTrace);
     
     }
-    
     
 }

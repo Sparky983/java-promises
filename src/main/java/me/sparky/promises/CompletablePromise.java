@@ -70,7 +70,8 @@ public class CompletablePromise<T> extends AbstractCompletablePromise<T> {
      * @param threadPool The executor that executes
      * @since 1.0
      */
-    public CompletablePromise(@NotNull me.sparky.promises.Executor<@NotNull T> executor, @NotNull Executor threadPool) {
+    public CompletablePromise(@NotNull me.sparky.promises.Executor<@NotNull T> executor,
+                              @NotNull Executor threadPool) {
         
         threadPool.execute(() -> {
             

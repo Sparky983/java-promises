@@ -140,7 +140,8 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
      */
     protected void checkNotPending() {
         
-        if (state != State.PENDING) throw new IllegalStateException("Promise has already been completed");
+        if (state != State.PENDING)
+            throw new IllegalStateException("Promise has already been completed");
         
     }
     
