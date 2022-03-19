@@ -111,7 +111,7 @@ public interface Promise<T> {
     @NotNull
     static <T> Promise<List<? super T>> all(@NotNull Promise<T>... promises) {
         
-        return new AllPromise<>(Arrays.asList(promises));
+        return all(Arrays.asList(promises));
     
     }
     
@@ -146,7 +146,7 @@ public interface Promise<T> {
     @NotNull
     static <T> Promise<T> any(@NotNull Promise<T>... promises) {
         
-        return new AnyPromise<>(Arrays.asList(promises));
+        return any(Arrays.asList(promises));
     
     }
     
@@ -178,7 +178,7 @@ public interface Promise<T> {
     @NotNull
     static Promise<Void> whenAll(@NotNull Promise<?>... promises) {
         
-        return new WhenAllPromise(Arrays.asList(promises));
+        return whenAll(Arrays.asList(promises));
     
     }
     
@@ -208,7 +208,7 @@ public interface Promise<T> {
     @NotNull
     static Promise<List<State>> allSettled(@NotNull Promise<?>... promises) {
         
-        return new AllSettledPromise(Arrays.asList(promises));
+        return allSettled(Arrays.asList(promises));
     
     }
     
