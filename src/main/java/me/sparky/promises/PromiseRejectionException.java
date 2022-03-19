@@ -16,6 +16,8 @@
 
 package me.sparky.promises;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
  * Exception thrown if promise is rejected with <code>String</code> for reason.
  *
@@ -37,7 +39,7 @@ public class PromiseRejectionException extends RuntimeException {
      * @param message The detail message
      * @since 1.0
      */
-    public PromiseRejectionException(String message) { super(message); }
+    public PromiseRejectionException(@Nullable String message) { super(message); }
     
     /**
      * Constructs a new <code>PromiseRejectionException</code> with specified detail message and
@@ -47,7 +49,7 @@ public class PromiseRejectionException extends RuntimeException {
      * @param cause The cause of this exception
      * @since 1.0
      */
-    public PromiseRejectionException(String message, Throwable cause) {
+    public PromiseRejectionException(@Nullable String message, @Nullable Throwable cause) {
         
         super(message, cause);
     
@@ -59,7 +61,7 @@ public class PromiseRejectionException extends RuntimeException {
      * @param cause The cause of this exception
      * @since 1.0
      */
-    public PromiseRejectionException(Throwable cause) { super(cause); }
+    public PromiseRejectionException(@Nullable Throwable cause) { super(cause); }
     
     /**
      * Constructs a new <code>PromiseRejectionException</code> with specified detail message, cause,
@@ -71,8 +73,8 @@ public class PromiseRejectionException extends RuntimeException {
      * @param writableStackTrace whether the stack trace should be writable or not
      * @since 1.0
      */
-    public PromiseRejectionException(String message,
-                                     Throwable cause,
+    public PromiseRejectionException(@Nullable String message,
+                                     @Nullable Throwable cause,
                                      boolean enableSuppression,
                                      boolean writableStackTrace) {
         
