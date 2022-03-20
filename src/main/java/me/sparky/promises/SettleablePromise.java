@@ -52,6 +52,7 @@ public class SettleablePromise<T> extends AbstractCompletablePromise<T> {
      *                 promise.
      *
      *                 Note: This operation is as asynchronous.
+     * @throws IllegalArgumentException if executor is null
      * @since 1.0
      * @see SettleablePromise#threadPool
      */
@@ -69,6 +70,7 @@ public class SettleablePromise<T> extends AbstractCompletablePromise<T> {
      *
      *                 Note: This operation is as asynchronous.
      * @param threadPool The executor that executes
+     * @throws IllegalArgumentException if executor or threadPool is null
      * @since 1.0
      */
     public SettleablePromise(@NotNull me.sparky.promises.Executor<@NotNull T> executor, @NotNull Executor threadPool) {

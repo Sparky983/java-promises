@@ -196,6 +196,7 @@ public interface Promise<T> {
      *
      * @param promises The input promises
      * @return The newly created promise
+     * @throws IllegalArgumentException if promises is null
      * @since 1.2
      */
     @NotNull
@@ -211,6 +212,7 @@ public interface Promise<T> {
      *
      * @param promises The input promises
      * @return The newly created promise
+     * @throws IllegalArgumentException if promises is null
      * @since 1.2
      */
     @NotNull
