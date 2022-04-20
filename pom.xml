@@ -87,9 +87,9 @@
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>23.0.0</version>
-        </dependency
+        </dependency>
 
-        ><!--    Unit Testing    -->
+        <!--    Unit Testing    -->
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
