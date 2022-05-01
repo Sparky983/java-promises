@@ -16,8 +16,9 @@
 
 package me.sparky.promises;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NonBlocking;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class ResolvedPromise<T> implements Promise<T> {
      * @param result The result of the promise
      * @since 1.0
      */
-    public ResolvedPromise(@Nullable T result) {
+    public ResolvedPromise(T result) {
         
         this.result = result;
         
@@ -55,6 +56,7 @@ public class ResolvedPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_, _ -> this")
     public Promise<T> then(@NotNull Callback<? super T> fulfil,
                            @NotNull Callback<@NotNull Throwable> reject) {
         
@@ -65,6 +67,7 @@ public class ResolvedPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> then(@NotNull Callback<? super T> fulfil) {
         
         try {
@@ -78,6 +81,7 @@ public class ResolvedPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> then(@NotNull Runnable fulfil) {
         
         return then(new RunnableCallback<>(fulfil));
@@ -86,6 +90,7 @@ public class ResolvedPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_, _ -> this")
     public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject) {
         
         return then(fulfil);
@@ -94,6 +99,7 @@ public class ResolvedPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> catchException(@NotNull Callback<@NotNull Throwable> reject) {
         
         rejectCallbacks.add(reject);
@@ -103,6 +109,7 @@ public class ResolvedPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> after(@NotNull Runnable runnable) {
         
         runnable.run();
@@ -130,6 +137,7 @@ public class ResolvedPromise<T> implements Promise<T> {
     }
     
     @Override
+    @NonBlocking
     public void await() { }
     
 }

@@ -16,6 +16,7 @@
 
 package me.sparky.promises;
 
+import org.jetbrains.annotations.Blocking;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -358,6 +359,7 @@ public interface Promise<T> {
      *
      * @since 1.0
      */
+    @Blocking
     void await();
     
 }

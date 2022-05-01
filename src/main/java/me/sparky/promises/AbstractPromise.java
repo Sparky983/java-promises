@@ -17,6 +17,7 @@
 package me.sparky.promises;
 
 import lombok.Getter;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -118,6 +119,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> then(@NotNull Callback<? super T> fulfil) {
         
         if (state == State.RESOLVED) runCallback(fulfil);
@@ -129,6 +131,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> then(@NotNull Runnable fulfil) {
         
         return then(new RunnableCallback<>(fulfil));
@@ -137,6 +140,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_, _ -> this")
     public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject) {
         
         return then(new RunnableCallback<>(fulfil), reject);
@@ -145,6 +149,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> catchException(@NotNull Callback<@NotNull Throwable> reject) {
     
         if (state == State.REJECTED) {
@@ -167,6 +172,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> after(@NotNull Runnable runnable) {
         
         if (state != State.PENDING) runnable.run();

@@ -16,6 +16,8 @@
 
 package me.sparky.promises;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NonBlocking;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -60,6 +62,7 @@ public class RejectedPromise<T> implements Promise<T>{
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> catchException(@NotNull Callback<@NotNull Throwable> reject) {
         
         try {
@@ -73,6 +76,7 @@ public class RejectedPromise<T> implements Promise<T>{
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> after(@NotNull Runnable runnable) {
         
         runnable.run();
@@ -86,6 +90,7 @@ public class RejectedPromise<T> implements Promise<T>{
     
     @Override
     @NotNull
+    @Contract("_, _ -> this")
     public Promise<T> then(@NotNull Callback<? super T> fulfil,
                            @NotNull Callback<@NotNull Throwable> reject) {
     
@@ -95,14 +100,17 @@ public class RejectedPromise<T> implements Promise<T>{
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> then(@NotNull Callback<? super T> fulfil) { return this; }
     
     @Override
     @NotNull
+    @Contract("_ -> this")
     public Promise<T> then(@NotNull Runnable fulfil) { return this; }
     
     @Override
     @NotNull
+    @Contract("_, _ -> this")
     public Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject) {
         
         return this;
@@ -110,6 +118,7 @@ public class RejectedPromise<T> implements Promise<T>{
     }
     
     @Override
+    @NonBlocking
     public void await() { }
     
 }
