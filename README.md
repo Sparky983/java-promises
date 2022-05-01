@@ -29,7 +29,7 @@ To install run the following command:
 
 Then add the following to your project
 
-Maven 
+pom.xml
 ```xml
 <dependency>
     <groupId>me.sparky</groupId>
@@ -38,7 +38,7 @@ Maven
 </dependency>
 ```
 
-Gradle
+build.gradle | build.gradle.kts
 ```gradle
 repositories {
     mavenLocal()
