@@ -38,8 +38,20 @@ pom.xml
 </dependency>
 ```
 
-build.gradle | build.gradle.kts
-```gradle
+build.gradle
+
+```groovy
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'me.sparky:promises:1.4.0'
+}
+```
+
+build.gradle.kts
+```kotlin
 repositories {
     mavenLocal()
 }
