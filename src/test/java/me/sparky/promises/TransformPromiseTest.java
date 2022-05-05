@@ -28,7 +28,7 @@ public class TransformPromiseTest {
     Promise<Integer> transformPromise;
     
     @BeforeEach
-    void setup() {
+    void setUp() {
         
         transformPromise = new TransformPromise<>(Promise.resolve(4), (value) -> value + 4);
         

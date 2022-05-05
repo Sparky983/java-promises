@@ -32,7 +32,7 @@ public class AllSettledPromiseTest {
     Promise<List<Promise.State>> allSettledPromise;
     
     @BeforeEach
-    void setup() {
+    void setUp() {
         
         promise1 = new SettleablePromise<>();
         promise2 = new SettleablePromise<>();

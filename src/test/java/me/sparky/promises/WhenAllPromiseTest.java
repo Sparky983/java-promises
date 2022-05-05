@@ -34,7 +34,7 @@ class WhenAllPromiseTest {
     Promise<Void> whenAllCompletedPromise;
     
     @BeforeEach
-    void setup() {
+    void setUp() {
         
         promise1 = new SettleablePromise<>();
         promise2 = new SettleablePromise<>();

@@ -32,7 +32,7 @@ class AnyPromiseTest {
     SettleablePromise<String> completablePromise;
     
     @BeforeEach
-    void setup() {
+    void setUp() {
         
         completablePromise = new SettleablePromise<>();
         

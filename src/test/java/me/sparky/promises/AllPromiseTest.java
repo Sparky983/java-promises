@@ -34,7 +34,7 @@ class AllPromiseTest {
     SettleablePromise<String> completablePromise;
     
     @BeforeEach
-    void setup() {
+    void setUp() {
         
         completablePromise = new SettleablePromise<>();
         allPromise = Promise.all(Promise.resolve("1"), completablePromise, Promise.resolve("3"));

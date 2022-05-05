@@ -30,7 +30,7 @@ class ResolvedPromiseTest {
     Promise<String> promise;
     
     @BeforeEach
-    void setup() {
+    void setUp() {
     
         promise = Promise.resolve("Resolved value");
         

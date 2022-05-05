@@ -30,7 +30,7 @@ class RejectedPromiseTest {
     Promise<String> promise;
     
     @BeforeEach
-    void setup() {
+    void setUp() {
         
         promise = Promise.reject("reason");
         
