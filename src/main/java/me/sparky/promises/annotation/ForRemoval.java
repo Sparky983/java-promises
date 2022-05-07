@@ -28,7 +28,7 @@ import static java.lang.annotation.ElementType.MODULE;
 import static java.lang.annotation.ElementType.PACKAGE;
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.SOURCE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * Something that is annotated with this annotation is going to be removed in a future version.
@@ -36,7 +36,7 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
  * Designed to add more information to {@link Deprecated}
  */
 @Documented
-@Retention(SOURCE)
+@Retention(RUNTIME)
 @Target({CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, MODULE, PARAMETER, TYPE})
 public @interface ForRemoval {
     
