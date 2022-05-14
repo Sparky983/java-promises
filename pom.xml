@@ -8,6 +8,24 @@
     <artifactId>java-promises</artifactId>
     <version>1.4.0</version>
 
+    <name>Java Promises</name>
+    <description>A promise library for Java with similar syntax to JavaScript</description>
+    <url>https://github.com/Sparky983/java-promises</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Sparky</name>
+            <url>https://github.com/Sparky983</url>
+        </developer>
+    </developers>
+
     <properties>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
