@@ -21,9 +21,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Function;
 
 /**
- * A promise that resolves to the return of the transform function when the current promise is
- * resolved, and is rejected when the current promise is rejected or if the transform function
- * fails.
+ * A promise that resolves to the return of the transform function when the
+ * current promise is resolved, and is rejected when the current promise is
+ * rejected or if the transform function fails.
  *
  * @param <T> The return of the transform function
  * @author Sparky

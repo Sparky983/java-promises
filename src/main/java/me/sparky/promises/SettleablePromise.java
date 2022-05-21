@@ -48,8 +48,8 @@ public class SettleablePromise<T> extends AbstractCompletablePromise<T> {
     /**
      * Constructs a new <code>SettleablePromise</code>
      *
-     * @param executor A callback which takes in 1 argument the promise and reject or resolve the
-     *                 promise.
+     * @param executor A callback which takes in 1 argument the promise and
+     *                 reject or resolve the promise.
      *
      *                 Note: This operation is as asynchronous.
      * @throws IllegalArgumentException if executor is null
@@ -65,8 +65,8 @@ public class SettleablePromise<T> extends AbstractCompletablePromise<T> {
     /**
      * Constructs a new <code>SettleablePromise</code>
      *
-     * @param executor A callback which takes in 1 argument the promise and reject or resolve the
-     *                 promise.
+     * @param executor A callback which takes in 1 argument the promise and
+     *                 reject or resolve the promise.
      *
      *                 Note: This operation is as asynchronous.
      * @param threadPool The executor that executes

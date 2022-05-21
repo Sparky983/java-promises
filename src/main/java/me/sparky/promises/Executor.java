@@ -19,8 +19,9 @@ package me.sparky.promises;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * This lambda is passed into {@link SettleablePromise#SettleablePromise(Executor)} to either
- * resolve or reject the promise. The argument is the promise itself.
+ * This lambda is passed into
+ * {@link SettleablePromise#SettleablePromise(Executor)} to either resolve or
+ * reject the promise. The argument is the promise itself.
  *
  * @param <T> The type of the promise
  * @author Sparky
@@ -30,7 +31,8 @@ import org.jetbrains.annotations.NotNull;
 public interface Executor<T> {
     
     /**
-     * Called asynchronously from {@link SettleablePromise#SettleablePromise(Executor)}.
+     * Called asynchronously from
+     * {@link SettleablePromise#SettleablePromise(Executor)}.
      *
      * @param promise The promise itself
      * @throws Exception if an error occurs during execution

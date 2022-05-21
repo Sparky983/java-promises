@@ -34,7 +34,8 @@ public class PromiseRejectionException extends RuntimeException {
     public PromiseRejectionException() { super(); }
     
     /**
-     * Constructs a new <code>PromiseRejectionException</code> with specified detail message.
+     * Constructs a new <code>PromiseRejectionException</code> with specified
+     * detail message.
      *
      * @param message The detail message
      * @since 1.0
@@ -42,7 +43,8 @@ public class PromiseRejectionException extends RuntimeException {
     public PromiseRejectionException(@Nullable String message) { super(message); }
     
     /**
-     * Constructs a new <code>PromiseRejectionException</code> with specified detail message and
+     * Constructs a new <code>PromiseRejectionException</code> with specified
+     * detail message and
      * cause.
      *
      * @param message The detail message
@@ -56,7 +58,8 @@ public class PromiseRejectionException extends RuntimeException {
     }
     
     /**
-     * Constructs a new <code>PromiseRejectionException</code> with specified cause.
+     * Constructs a new <code>PromiseRejectionException</code> with specified
+     * cause.
      *
      * @param cause The cause of this exception
      * @since 1.0
@@ -64,13 +67,16 @@ public class PromiseRejectionException extends RuntimeException {
     public PromiseRejectionException(@Nullable Throwable cause) { super(cause); }
     
     /**
-     * Constructs a new <code>PromiseRejectionException</code> with specified detail message, cause,
-     * suppression enabled or disabled, and writeable stack trace enabled or disabled.
+     * Constructs a new <code>PromiseRejectionException</code> with specified
+     * detail message, cause, suppression enabled or disabled, and writeable
+     * stack trace enabled or disabled.
      *
      * @param message The detail message
      * @param cause The cause of this exception
-     * @param enableSuppression whether suppression should be enabled or disabled
-     * @param writableStackTrace whether the stack trace should be writable or not
+     * @param enableSuppression whether suppression should be enabled or
+     *                          disabled
+     * @param writableStackTrace whether the stack trace should be writable or
+     *                          not
      * @since 1.0
      */
     public PromiseRejectionException(@Nullable String message,

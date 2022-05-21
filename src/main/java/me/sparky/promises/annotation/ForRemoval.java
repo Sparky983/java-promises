@@ -31,7 +31,8 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Something that is annotated with this annotation is going to be removed in a future version.
+ * Something that is annotated with this annotation is going to be removed in a
+ * future version.
  *
  * Designed to add more information to {@link Deprecated}
  */

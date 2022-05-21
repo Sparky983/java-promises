@@ -38,8 +38,8 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
     protected AbstractCompletablePromise() { }
     
     /**
-     * Resolves the promise with specified value. Assuming the state of the promise is not pending
-     * all the {@link Promise#then} callbacks will.
+     * Resolves the promise with specified value. Assuming the state of the
+     * promise is not pending all the {@link Promise#then} callbacks will.
      *
      * @param result The result of the promise
      * @throws IllegalStateException if state is not {@link State#PENDING}
@@ -112,7 +112,8 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
     }
     
     /**
-     * Rejects the promise without checking the current state. Or clearing the fulfil callbacks.
+     * Rejects the promise without checking the current state. Or clearing the
+     * fulfil callbacks.
      *
      * @param reason The reason for the rejection
      * @throws IllegalArgumentException if reason is null
@@ -134,7 +135,8 @@ public abstract class AbstractCompletablePromise<T> extends AbstractPromise<T> {
     }
     
     /**
-     * Helper function to check if state is pending, if so throw {@link IllegalStateException}.
+     * Helper function to check if state is pending, if so throw
+     * {@link IllegalStateException}.
      *
      * @throws IllegalStateException if state is {@link State#PENDING}
      * @since 1.0

@@ -19,8 +19,9 @@ package me.sparky.promises;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Represents a callback that can be created from a runnable. You should use this in situations
- * where you have a {@link Runnable} lambda, and want to use it as a callback.
+ * Represents a callback that can be created from a runnable. You should use
+ * this in situations where you have a {@link Runnable} lambda, and want to use
+ * it as a callback.
  *
  * @param <T> The type of the callback
  * @author Sparky

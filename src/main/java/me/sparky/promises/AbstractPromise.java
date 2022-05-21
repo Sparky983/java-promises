@@ -26,7 +26,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Provides basic implementation of {@link Promise} which most implementations should extend.
+ * Provides basic implementation of {@link Promise} which most implementations
+ * should extend.
  *
  * @param <T> The type of the resolved value of the promise
  * @author Sparky
@@ -90,8 +91,9 @@ public abstract class AbstractPromise<T> implements Promise<T> {
     protected AbstractPromise() { }
     
     /**
-     * Adds additional logic to running a callback that is defined by subclass. For
-     * example one may want to reject the callback if an exception occurs or simply swallow it.
+     * Adds additional logic to running a callback that is defined by subclass.
+     * For example one may want to reject the callback if an exception occurs
+     * or simply swallow it.
      *
      * @param fulfilCallback The callback to run
      * @throws IllegalArgumentException if fulfilCallback is null

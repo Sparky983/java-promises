@@ -21,8 +21,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Collection;
 
 /**
- * A void promise that resolves when all input promises are resolved and rejected if any input
- * promises are rejected.
+ * A void promise that resolves when all input promises are resolved and
+ * rejected if any input promises are rejected.
  *
  * @since 1.1
  * @author Sparky

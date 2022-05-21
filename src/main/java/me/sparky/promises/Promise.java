@@ -71,7 +71,11 @@ public interface Promise<T> {
      * @since 1.0
      */
     @NotNull
-    static <T> Promise<T> reject(@NotNull Throwable reason) { return new RejectedPromise<>(reason); }
+    static <T> Promise<T> reject(@NotNull Throwable reason) {
+        
+        return new RejectedPromise<>(reason);
+    
+    }
     
     /**
      * Creates a new rejected promise.
@@ -90,8 +94,9 @@ public interface Promise<T> {
     }
     
     /**
-     * Creates a new <code>AllPromise</code>. This promise will be resolved when all the promise inputs are
-     * resolved. It will be rejected if any of them are rejected.
+     * Creates a new <code>AllPromise</code>. This promise will be resolved
+     * when all the promise inputs are resolved. It will be rejected if any of
+     * them are rejected.
      *
      * @param promises The input promises
      * @param <T> The type of the input promises
@@ -107,8 +112,9 @@ public interface Promise<T> {
     }
     
     /**
-     * Creates a new <code>AllPromise</code>. This promise will be resolved when all the promise inputs are
-     * resolved. It will be rejected if any of them are rejected.
+     * Creates a new <code>AllPromise</code>. This promise will be resolved
+     * when all the promise inputs are resolved. It will be rejected if any
+     * of them are rejected.
      *
      * @param promises The input promises
      * @param <T> The type of the input promises
@@ -125,8 +131,9 @@ public interface Promise<T> {
     }
     
     /**
-     * Creates a new <code>AnyPromise</code>. This promise will be resolved when any of the promise
-     * inputs are resolved and will not be rejected if input promises are rejected.
+     * Creates a new <code>AnyPromise</code>. This promise will be resolved
+     * when any of the promise inputs are resolved and will not be rejected if
+     * input promises are rejected.
      *
      * @param promises The input promises
      * @param <T> The type of the promise
@@ -142,8 +149,9 @@ public interface Promise<T> {
     }
     
     /**
-     * Creates a new <code>AnyPromise</code>. This promise will be resolved when any of the promise
-     * inputs are resolved and will not be rejected if input promises are rejected.
+     * Creates a new <code>AnyPromise</code>. This promise will be resolved
+     * when any of the promise inputs are resolved and will not be rejected
+     * if input promises are rejected.
      *
      * @param promises The input promises
      * @param <T> The type of the promise
@@ -160,8 +168,9 @@ public interface Promise<T> {
     }
     
     /**
-     * Creates a new <code>WhenAllPromise</code>. This promise will be resolved when all input
-     * promises are resolved and will be rejected if any of its inputs are resolved.
+     * Creates a new <code>WhenAllPromise</code>. This promise will be resolved
+     * when all input promises are resolved and will be rejected if any of its
+     * inputs are resolved.
      *
      * @param promises The input promises
      * @return The newly created promise
@@ -176,8 +185,9 @@ public interface Promise<T> {
     }
     
     /**
-     * Creates a new <code>WhenAllPromise</code>. This promise will be resolved when all input
-     * promises are resolved and will be rejected if any of its inputs are resolved.
+     * Creates a new <code>WhenAllPromise</code>. This promise will be resolved
+     * when all input promises are resolved and will be rejected if any of its
+     * inputs are resolved.
      *
      * @param promises The input promises
      * @return The newly created promise
@@ -192,8 +202,8 @@ public interface Promise<T> {
     }
     
     /**
-     * Creates a new <code>AllSettledPromise</code>. This promise is resolved when all the inputs
-     * settle (complete).
+     * Creates a new <code>AllSettledPromise</code>. This promise is resolved
+     * when all the inputs settle (complete).
      *
      * @param promises The input promises
      * @return The newly created promise
@@ -208,8 +218,8 @@ public interface Promise<T> {
     }
     
     /**
-     * Creates a new <code>AllSettledPromise</code>. This promise is resolved when all the inputs
-     * settle (complete).
+     * Creates a new <code>AllSettledPromise</code>. This promise is resolved
+     * when all the inputs settle (complete).
      *
      * @param promises The input promises
      * @return The newly created promise
@@ -232,7 +242,8 @@ public interface Promise<T> {
     enum State {
         
         /**
-         * Represents the state of a promise whose value has not been retrieved yet.
+         * Represents the state of a promise whose value has not been
+         * retrieved yet.
          *
          * @since 1.0
          */
@@ -302,12 +313,12 @@ public interface Promise<T> {
     Promise<T> then(@NotNull Runnable fulfil, @NotNull Callback<@NotNull Throwable> reject);
     
     /**
-     * Adds a transform function to be applied on fulfil that returns a new value from the input
-     * value.
+     * Adds a transform function to be applied on fulfil that returns a new
+     * value from the input value.
      *
-     * Returns a new promise that resolves to the return of the transform function when the current
-     * promise is resolved, and is rejected when the current promise is rejected or if the transform
-     * function fails.
+     * Returns a new promise that resolves to the return of the transform
+     * function when the current promise is resolved, and is rejected when the
+     * current promise is rejected or if the transform function fails.
      *
      * @param transform The transform function
      * @param <R> The type of the transformed value
@@ -334,8 +345,8 @@ public interface Promise<T> {
     Promise<T> catchException(@NotNull Callback<@NotNull Throwable> reject);
     
     /**
-     * Adds a callback to be called when promise is either completed (resolved or rejected).
-     * In most languages this method would be called <code>finally</code>.
+     * Adds a callback to be called when promise is either completed (resolved
+     * or rejected). In most languages this method would be called <code>finally</code>.
      *
      * @param runnable The run callback
      * @return The promise instance (for chaining)

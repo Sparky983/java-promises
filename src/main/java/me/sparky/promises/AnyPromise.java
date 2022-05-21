@@ -21,8 +21,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * Represents a promise that resolves when any of its input promises are completed. This promise
- * will not be rejected if any of it's input promises are rejected.
+ * Represents a promise that resolves when any of its input promises are
+ * completed. This promise will not be rejected if any of it's input
+ * promises are rejected.
  *
  * @param <T> The type of the promises
  * @author Sparky
