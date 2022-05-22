@@ -1,4 +1,4 @@
-# Java Promises 
+<img src="img/banner.png">
 
 <p align="center">Java promise library aimed to have syntax which is very similar to JavaScript. </p>
 
