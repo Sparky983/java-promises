@@ -20,7 +20,7 @@ jobs:
             run: 'mvn clean "--update-snapshots" "--batch-mode" verify "-Dmaven.javadoc.skip=true" "-Dmaven.source.skip=true"'
           - name: Upload artifact
             run: mkdir staging && cp target/*.jar staging
-          - uses: actions/upload-artifact@v2
+          - uses: actions/upload-artifact@v3
             with:
                 name: Package
                 path: staging
