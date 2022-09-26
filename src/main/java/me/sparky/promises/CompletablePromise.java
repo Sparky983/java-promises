@@ -17,11 +17,13 @@
 package me.sparky.promises;
 
 import me.sparky.promises.annotation.ForRemoval;
+import org.jetbrains.annotations.ApiStatus;
 
 /**
  * @deprecated replaced with properly named {@link SettleablePromise}
  * @see SettleablePromise
  */
+@ApiStatus.ScheduledForRemoval(inVersion = "1.6.0")
 @ForRemoval(deadline = "1.6.0")
 @Deprecated(since = "1.4.1", forRemoval = true)
 public class CompletablePromise<T> extends SettleablePromise<T> {

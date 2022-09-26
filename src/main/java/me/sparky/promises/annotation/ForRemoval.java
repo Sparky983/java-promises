@@ -16,6 +16,8 @@
 
 package me.sparky.promises.annotation;
 
+import org.jetbrains.annotations.ApiStatus;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -35,7 +37,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * future version.
  *
  * Designed to add more information to {@link Deprecated}
+ *
+ * @deprecated Use {@link ApiStatus.ScheduledForRemoval}
  */
+@Deprecated(since = "1.4.0")
 @Documented
 @Retention(RUNTIME)
 @Target({CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, MODULE, PARAMETER, TYPE})
