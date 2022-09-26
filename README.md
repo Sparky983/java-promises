@@ -21,43 +21,50 @@ things.
 
 ## Installation
 
-JDK 11 or higher and Maven is required to build Java Promises. 
-
-To install run the following command:
-
-```mvn clean install```
-
 Then add the following to your project
 
 pom.xml
 ```xml
-<dependency>
-    <groupId>me.sparky</groupId>
-    <artifactId>java-promises</artifactId>
-    <version>1.4.0</version>
-</dependency>
+<repositories>
+    <repository>
+        <id>sparky-releases</id>
+        <url>https://repo.sparky983.me/releases</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>me.sparky</groupId>
+        <artifactId>java-promises</artifactId>
+        <version>1.4.0</version>
+    </dependency>
+</dependencies>
 ```
 
 build.gradle
 
 ```groovy
 repositories {
-    mavenLocal()
+    maven {
+        url "https://repo.sparky983.me/releases"
+    }
 }
 
 dependencies {
-    implementation 'me.sparky:promises:1.4.0'
+    implementation 'me.sparky:java-promises:1.4.0'
 }
 ```
 
 build.gradle.kts
 ```kotlin
 repositories {
-    mavenLocal()
+    maven {
+        url = uri("https://repo.sparky983.me/releases")
+    }
 }
 
 dependencies {
-    implementation("me.sparky:promises:1.4.0")
+    implementation("me.sparky:java-promises:1.4.0")
 }
 ```
 
