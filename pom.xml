@@ -34,6 +34,13 @@
 
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>sparky-releases</id>
+            <url>https://repo.sparky983.me/releases</url>
+        </repository>
+    </distributionManagement>
+
     <build>
 
         <plugins>
